@@ -1,0 +1,16 @@
+-- First, copy existing name data to firstName
+UPDATE "User"
+SET "firstName" = "name"
+WHERE "name" IS NOT NULL;
+
+-- Then safely alter the table
+ALTER TABLE "User"
+ADD COLUMN IF NOT EXISTS "firstName" TEXT,
+ADD COLUMN IF NOT EXISTS "lastName" TEXT,
+ADD COLUMN IF NOT EXISTS "phone" TEXT,
+ADD COLUMN IF NOT EXISTS "company" TEXT,
+ADD COLUMN IF NOT EXISTS "avatar" TEXT;
+
+-- Update role to use enum while preserving existing values
+ALTER TABLE "User"
+ALTER COLUMN "role" TYPE TEXT;

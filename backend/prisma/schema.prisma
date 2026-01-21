@@ -1,0 +1,481 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  email         String         @unique
+  password      String
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  firstName     String?
+  lastName      String?
+  id            String         @id @default(uuid())
+  role          Role           @default(USER)
+  notifications Notification[]
+  orders        Order[]
+  quickResponses QuickResponse[]
+  conversations Conversation[]
+  messageTemplates MessageTemplate[]
+  tasksAssigned Task[]
+}
+
+model Client {
+  id          String        @id @default(uuid())
+  name        String
+  email       String
+  phone       String
+  company     String
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  deletedAt   DateTime?
+  Appointment Appointment[]
+  Task        Task[]
+  invoices    Invoice[]
+  conversations Conversation[]
+}
+
+model Task {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  dueDate     DateTime?
+  clientId    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  priority    Priority @default(LOW)
+  status      Status   @default(PENDING)
+  client      Client   @relation(fields: [clientId], references: [id])
+  whatsappLink String?
+  assignedToId String?
+  assignedTo  User?    @relation(fields: [assignedToId], references: [id])
+  log         Json?
+}
+
+model Product {
+  id          String      @id @default(uuid())
+  name        String
+  description String
+  price       Float
+  stock       Int
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  minStock    Int
+  meliItemId  String?     // ID del producto en MercadoLibre
+  barcode     String?     @unique
+  OrderItem   OrderItem[]
+  invoiceItems InvoiceItem[]
+  comboItems  ComboItem[]
+  syncGroup   ProductSync? @relation(fields: [syncGroupId], references: [id])
+  syncGroupId String?
+  batches     Batch[]
+  variants    ProductVariant[]
+  
+  @@index([meliItemId])
+  @@index([syncGroupId])
+}
+
+model Order {
+  id         String      @id @default(uuid())
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  total      Float
+  status     OrderStatus @default(PENDING)
+  customerId String
+  customer   User        @relation(fields: [customerId], references: [id])
+  orderItems OrderItem[]
+  invoice    Invoice?
+}
+
+model OrderItem {
+  id        String   @id @default(uuid())
+  quantity  Int
+  price     Float
+  orderId   String
+  productId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  order     Order    @relation(fields: [orderId], references: [id])
+  product   Product  @relation(fields: [productId], references: [id])
+}
+
+model Appointment {
+  id        String   @id @default(uuid())
+  date      DateTime
+  duration  Int
+  type      String
+  notes     String?
+  clientId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  client    Client   @relation(fields: [clientId], references: [id])
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  userId    String
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Configuration {
+  key       String   @id
+  value     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum Status {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  ESPERANDO_CLIENTE
+}
+
+enum OrderStatus {
+  PENDING
+  COMPLETED
+  CANCELLED
+  PROCESSING
+}
+
+model QuickResponse {
+  id          String   @id @default(uuid())
+  title       String
+  content     String
+  category    String?
+  tags        String[] @default([])
+  isActive    Boolean  @default(true)
+  usageCount  Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+
+  @@index([category])
+  @@index([userId])
+}
+
+model Conversation {
+  id            String            @id @default(uuid())
+  clientId      String
+  userId        String
+  subject       String?
+  status        ConversationStatus @default(ACTIVE)
+  lastMessageAt DateTime?         @default(now())
+  createdAt     DateTime          @default(now())
+  updatedAt     DateTime          @updatedAt
+  
+  // Relaciones
+  client        Client            @relation(fields: [clientId], references: [id])
+  user          User              @relation(fields: [userId], references: [id])
+  messages      Message[]
+  
+  @@index([clientId])
+  @@index([userId])
+  @@index([status])
+}
+
+model Message {
+  id             String      @id @default(uuid())
+  conversationId String
+  content        String
+  messageType    MessageType @default(TEXT)
+  direction      MessageDirection @default(OUTGOING)
+  attachments    Json?       // Para almacenar archivos adjuntos
+  readAt         DateTime?
+  deliveredAt    DateTime?
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+  
+  // Relaciones
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  
+  @@index([conversationId])
+  @@index([createdAt])
+}
+
+model MessageTemplate {
+  id          String   @id @default(uuid())
+  title       String
+  content     String
+  category    String?
+  tags        String[] @default([])
+  isActive    Boolean  @default(true)
+  usageCount  Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+
+  @@index([category])
+  @@index([userId])
+}
+
+// Modelos para integración con AFIP
+model AfipConfig {
+  id                String   @id @default(uuid())
+  cuit              String   @unique
+  certificatePath   String   // Ruta al certificado .crt
+  privateKeyPath    String   // Ruta a la clave privada .key
+  environment       AfipEnvironment @default(TESTING) // TESTING o PRODUCTION
+  puntoVenta        Int      @default(1)
+  isActive          Boolean  @default(true)
+  lastTicketNumber  Int      @default(0)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model AfipInvoice {
+  id                String   @id @default(uuid())
+  invoiceId         String   @unique
+  invoice           Invoice  @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  cae               String?  // Código de Autorización Electrónico
+  caeExpiration     DateTime?
+  ticketNumber      Int
+  puntoVenta        Int
+  tipoComprobante   Int      // Tipo de comprobante AFIP
+  numeroComprobante Int
+  fechaEmision      DateTime
+  importeTotal      Float
+  importeNeto       Float
+  importeIva        Float
+  status            AfipInvoiceStatus @default(PENDING)
+  errorMessage      String?
+  xmlRequest        String?  // XML enviado a AFIP
+  xmlResponse       String?  // XML recibido de AFIP
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model Invoice {
+  id              String        @id @default(uuid())
+  invoiceNumber   String        @unique
+  clientId        String
+  orderId         String?       @unique
+  subtotal        Float
+  taxAmount       Float
+  discountAmount  Float         @default(0)
+  totalAmount     Float
+  currency        String        @default("ARS")
+  status          InvoiceStatus @default(DRAFT)
+  dueDate         DateTime?
+  paidDate        DateTime?
+  notes           String?
+  paymentMethod   String?
+  paymentReference String?
+  pdfUrl          String?
+  issuedAt        DateTime      @default(now())
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  
+  // Relaciones
+  client          Client        @relation(fields: [clientId], references: [id])
+  order           Order?        @relation(fields: [orderId], references: [id])
+  items           InvoiceItem[]
+  afipInvoice     AfipInvoice?
+  
+  @@index([clientId])
+  @@index([status])
+  @@index([invoiceNumber])
+}
+
+model InvoiceItem {
+  id          String  @id @default(uuid())
+  invoiceId   String
+  productId   String?
+  variantId   String?
+  description String
+  quantity    Int
+  unitPrice   Float
+  taxRate     Float   @default(0)
+  discountRate Float  @default(0)
+  totalAmount Float
+  costPrice   Float   @default(0)
+
+  // Relaciones
+  invoice     Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  product     Product? @relation(fields: [productId], references: [id])
+  variant     ProductVariant? @relation(fields: [variantId], references: [id])
+  allocations InvoiceItemBatch[]
+
+  @@index([invoiceId])
+}
+
+model InvoiceConfig {
+  id                    String   @id @default(uuid())
+  companyName           String
+  companyAddress        String
+  companyPhone          String?
+  companyEmail          String?
+  taxId                 String?
+  logoUrl               String?
+  invoicePrefix         String   @default("INV")
+  nextInvoiceNumber     Int      @default(1)
+  defaultTaxRate        Float    @default(21.0)
+  defaultCurrency       String   @default("ARS")
+  paymentTermsDays      Int      @default(30)
+  autoGenerateInvoices  Boolean  @default(false)
+  emailTemplate         String?
+  footerText            String?
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+}
+
+model ProductCombo {
+  id          String      @id @default(uuid())
+  name        String
+  description String?
+  discount    Float       // Porcentaje de descuento (0-100)
+  isActive    Boolean     @default(true)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  items       ComboItem[]
+  
+  @@index([isActive])
+}
+
+model ComboItem {
+  id            String      @id @default(uuid())
+  comboId       String
+  productId     String
+  quantity      Int
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  
+  // Relaciones
+  combo         ProductCombo @relation(fields: [comboId], references: [id], onDelete: Cascade)
+  product       Product     @relation(fields: [productId], references: [id])
+  
+  @@unique([comboId, productId])
+  @@index([comboId])
+  @@index([productId])
+}
+
+model ProductSync {
+  id          String    @id @default(uuid())
+  masterSku   String    @unique // SKU maestro para identificar el grupo
+  name        String?   // Nombre descriptivo del grupo
+  description String?   // Descripción del grupo de sincronización
+  isActive    Boolean   @default(true)
+  lastSyncAt  DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  
+  // Relaciones
+  products    Product[]
+  
+  @@index([masterSku])
+  @@index([isActive])
+}
+
+enum InvoiceStatus {
+  DRAFT
+  SENT
+  PAID
+  OVERDUE
+  CANCELLED
+  REFUNDED
+}
+
+enum AfipEnvironment {
+  TESTING
+  PRODUCTION
+}
+
+enum AfipInvoiceStatus {
+  PENDING
+  AUTHORIZED
+  REJECTED
+  ERROR
+}
+
+model Batch {
+  id         String   @id @default(uuid())
+  productId  String
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  variantId  String?
+  variant    ProductVariant? @relation(fields: [variantId], references: [id])
+  batchNumber String?
+  shelfLocation String?
+  quantity   Int
+  costPrice  Float    @default(0) // precio de costo por unidad en el lote
+  expiresAt  DateTime?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  allocations InvoiceItemBatch[]
+
+  @@index([productId, expiresAt])
+  @@index([variantId])
+  @@index([batchNumber])
+  @@index([shelfLocation])
+}
+
+model ProductVariant {
+  id         String   @id @default(uuid())
+  productId  String
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  sku        String?  @unique
+  name       String?
+  flavor     String?
+  size       String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  batches    Batch[]
+  invoiceItems InvoiceItem[]
+
+  @@index([productId])
+}
+
+model InvoiceItemBatch {
+  id             String   @id @default(uuid())
+  invoiceItemId  String
+  batchId        String
+  quantity       Int
+  costPrice      Float    @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  invoiceItem    InvoiceItem @relation(fields: [invoiceItemId], references: [id], onDelete: Cascade)
+  batch          Batch       @relation(fields: [batchId], references: [id], onDelete: Cascade)
+
+  @@index([invoiceItemId])
+  @@index([batchId])
+}
+
+enum ConversationStatus {
+  ACTIVE
+  CLOSED
+  ARCHIVED
+}
+
+enum MessageType {
+  TEXT
+  IMAGE
+  FILE
+  AUDIO
+  VIDEO
+}
+
+enum MessageDirection {
+  INCOMING
+  OUTGOING
+}

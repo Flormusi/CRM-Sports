@@ -1,0 +1,13 @@
+import express from 'express';
+import { ProductController } from '../controllers/ProductController';  // Match the actual file name case
+
+const router = express.Router();
+const productController = new ProductController();
+
+router.get('/', productController.getAllProducts.bind(productController));
+router.get('/:id', productController.getProductById.bind(productController));
+router.post('/', productController.createProduct.bind(productController));
+router.put('/:id', productController.update.bind(productController));
+router.delete('/:id', productController.delete.bind(productController));
+
+export default router;

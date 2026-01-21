@@ -1,0 +1,4780 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Application documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Application documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Variables</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#afipService" title="frontend/src/services/afipService.ts" ><b>afipService</b>&nbsp;&nbsp;&nbsp;(frontend/.../afipService.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Analytics" title="frontend/src/pages/Analytics.tsx" ><b>Analytics</b>&nbsp;&nbsp;&nbsp;(frontend/.../Analytics.tsx)</a>
+                        </li>
+                        <li>
+                            <a href="#api" title="frontend/src/services/api.ts" ><b>api</b>&nbsp;&nbsp;&nbsp;(frontend/.../api.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#API_URL" title="frontend/src/services/api.ts" ><b>API_URL</b>&nbsp;&nbsp;&nbsp;(frontend/.../api.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#app" title="backend/src/app.ts" ><b>app</b>&nbsp;&nbsp;&nbsp;(backend/.../app.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#app" title="backend/src/server.ts" ><b>app</b>&nbsp;&nbsp;&nbsp;(backend/.../server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#App" title="frontend/src/App.tsx" ><b>App</b>&nbsp;&nbsp;&nbsp;(frontend/.../App.tsx)</a>
+                        </li>
+                        <li>
+                            <a href="#auth" title="backend/src/middleware/auth.ts" ><b>auth</b>&nbsp;&nbsp;&nbsp;(backend/.../auth.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#authMiddleware" title="backend/src/routes/userProfile.ts" ><b>authMiddleware</b>&nbsp;&nbsp;&nbsp;(backend/.../userProfile.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#authService" title="frontend/src/services/authService.ts" ><b>authService</b>&nbsp;&nbsp;&nbsp;(frontend/.../authService.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Clients" title="frontend/src/pages/Clients.tsx" ><b>Clients</b>&nbsp;&nbsp;&nbsp;(frontend/.../Clients.tsx)</a>
+                        </li>
+                        <li>
+                            <a href="#clientService" title="frontend/src/services/clientService.ts" ><b>clientService</b>&nbsp;&nbsp;&nbsp;(frontend/.../clientService.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#configController" title="backend/src/routes/config.routes.ts" ><b>configController</b>&nbsp;&nbsp;&nbsp;(backend/.../config.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ConfigSchema" title="backend/src/controllers/configController.ts" ><b>ConfigSchema</b>&nbsp;&nbsp;&nbsp;(backend/.../configController.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#connectMongoDb" title="backend/src/config/database.ts" ><b>connectMongoDb</b>&nbsp;&nbsp;&nbsp;(backend/.../database.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#connectPostgresDB" title="backend/src/config/database.ts" ><b>connectPostgresDB</b>&nbsp;&nbsp;&nbsp;(backend/.../database.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#createClientValidation" title="backend/src/validations/clientValidations.ts" ><b>createClientValidation</b>&nbsp;&nbsp;&nbsp;(backend/.../clientValidations.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#createInitialSchema" title="backend/src/db/migrations/001_initial_schema.ts" ><b>createInitialSchema</b>&nbsp;&nbsp;&nbsp;(backend/.../001_initial_schema.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#createProductsTable" title="backend/src/db/migrations/001_create_products.ts" ><b>createProductsTable</b>&nbsp;&nbsp;&nbsp;(backend/.../001_create_products.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Customer" title="backend/src/models/Customer.ts" ><b>Customer</b>&nbsp;&nbsp;&nbsp;(backend/.../Customer.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#customerController" title="backend/src/routes/customer.routes.ts" ><b>customerController</b>&nbsp;&nbsp;&nbsp;(backend/.../customer.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CustomerSchema" title="backend/src/models/Customer.ts" ><b>CustomerSchema</b>&nbsp;&nbsp;&nbsp;(backend/.../Customer.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Dashboard" title="frontend/src/pages/Dashboard.tsx" ><b>Dashboard</b>&nbsp;&nbsp;&nbsp;(frontend/.../Dashboard.tsx)</a>
+                        </li>
+                        <li>
+                            <a href="#dashboardController" title="backend/src/routes/dashboard.routes.ts" ><b>dashboardController</b>&nbsp;&nbsp;&nbsp;(backend/.../dashboard.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#drawerWidth" title="frontend/src/layouts/MainLayout.tsx" ><b>drawerWidth</b>&nbsp;&nbsp;&nbsp;(frontend/.../MainLayout.tsx)</a>
+                        </li>
+                        <li>
+                            <a href="#element" title="frontend/node_modules 2/@testing-library/jest-dom/types/__tests__/bun/bun-custom-expect-types.test.ts" ><b>element</b>&nbsp;&nbsp;&nbsp;(frontend/.../bun-custom-expect-types.test.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#element" title="frontend/node_modules 2/@testing-library/jest-dom/types/__tests__/bun/bun-types.test.ts" ><b>element</b>&nbsp;&nbsp;&nbsp;(frontend/.../bun-types.test.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#element" title="frontend/node_modules 2/@testing-library/jest-dom/types/__tests__/jest/jest-custom-expect-types.test.ts" ><b>element</b>&nbsp;&nbsp;&nbsp;(frontend/.../jest-custom-expect-types.test.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#element" title="frontend/node_modules 2/@testing-library/jest-dom/types/__tests__/jest/jest-types.test.ts" ><b>element</b>&nbsp;&nbsp;&nbsp;(frontend/.../jest-types.test.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#element" title="frontend/node_modules 2/@testing-library/jest-dom/types/__tests__/jest-globals/jest-globals-custom-expect-types.test.ts" ><b>element</b>&nbsp;&nbsp;&nbsp;(frontend/.../jest-globals-custom-expect-types.test.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#element" title="frontend/node_modules 2/@testing-library/jest-dom/types/__tests__/jest-globals/jest-globals-types.test.ts" ><b>element</b>&nbsp;&nbsp;&nbsp;(frontend/.../jest-globals-types.test.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#element" title="frontend/node_modules 2/@testing-library/jest-dom/types/__tests__/vitest/vitest-custom-expect-types.test.ts" ><b>element</b>&nbsp;&nbsp;&nbsp;(frontend/.../vitest-custom-expect-types.test.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#element" title="frontend/node_modules 2/@testing-library/jest-dom/types/__tests__/vitest/vitest-types.test.ts" ><b>element</b>&nbsp;&nbsp;&nbsp;(frontend/.../vitest-types.test.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#emailController" title="backend/src/routes/email.routes.ts" ><b>emailController</b>&nbsp;&nbsp;&nbsp;(backend/.../email.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#errorHandler" title="backend/src/middleware/errorHandler.ts" ><b>errorHandler</b>&nbsp;&nbsp;&nbsp;(backend/.../errorHandler.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#expressValidator" title="backend/src/validations/clientValidations.ts" ><b>expressValidator</b>&nbsp;&nbsp;&nbsp;(backend/.../clientValidations.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#generateAdminToken" title="backend/src/utils/generateTestToken.ts" ><b>generateAdminToken</b>&nbsp;&nbsp;&nbsp;(backend/.../generateTestToken.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#handleAvatarUpload" title="backend/src/routes/userProfile.ts" ><b>handleAvatarUpload</b>&nbsp;&nbsp;&nbsp;(backend/.../userProfile.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#handleError" title="backend/src/utils/errorHandler.ts" ><b>handleError</b>&nbsp;&nbsp;&nbsp;(backend/.../errorHandler.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#handleRequest" title="backend/src/routes/config.routes.ts" ><b>handleRequest</b>&nbsp;&nbsp;&nbsp;(backend/.../config.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#handleRequest" title="backend/src/routes/customer.routes.ts" ><b>handleRequest</b>&nbsp;&nbsp;&nbsp;(backend/.../customer.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#handleRequest" title="backend/src/routes/dashboard.routes.ts" ><b>handleRequest</b>&nbsp;&nbsp;&nbsp;(backend/.../dashboard.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#handleRequest" title="backend/src/routes/email.routes.ts" ><b>handleRequest</b>&nbsp;&nbsp;&nbsp;(backend/.../email.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#handleRequest" title="backend/src/routes/order.routes.ts" ><b>handleRequest</b>&nbsp;&nbsp;&nbsp;(backend/.../order.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#handleRequest" title="backend/src/routes/product.routes.ts" ><b>handleRequest</b>&nbsp;&nbsp;&nbsp;(backend/.../product.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#handleRequest" title="backend/src/routes/user.routes.ts" ><b>handleRequest</b>&nbsp;&nbsp;&nbsp;(backend/.../user.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#initializeApp" title="backend/src/app.ts" ><b>initializeApp</b>&nbsp;&nbsp;&nbsp;(backend/.../app.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#invoiceController" title="backend/src/routes/invoice.routes.ts" ><b>invoiceController</b>&nbsp;&nbsp;&nbsp;(backend/.../invoice.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#InvoiceModel" title="backend/src/models/invoice.model.ts" ><b>InvoiceModel</b>&nbsp;&nbsp;&nbsp;(backend/.../invoice.model.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#InvoiceModel" title="backend/src/models/invoice.ts" ><b>InvoiceModel</b>&nbsp;&nbsp;&nbsp;(backend/.../invoice.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#invoiceSchema" title="backend/src/models/invoice.model.ts" ><b>invoiceSchema</b>&nbsp;&nbsp;&nbsp;(backend/.../invoice.model.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#InvoiceSchema" title="backend/src/models/invoice.ts" ><b>InvoiceSchema</b>&nbsp;&nbsp;&nbsp;(backend/.../invoice.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isAdmin" title="backend/src/middleware/isAdmin.ts" ><b>isAdmin</b>&nbsp;&nbsp;&nbsp;(backend/.../isAdmin.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#login" title="backend/src/routes/auth.routes.ts" ><b>login</b>&nbsp;&nbsp;&nbsp;(backend/.../auth.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Login" title="frontend/src/pages/Login.tsx" ><b>Login</b>&nbsp;&nbsp;&nbsp;(frontend/.../Login.tsx)</a>
+                        </li>
+                        <li>
+                            <a href="#MainLayout" title="frontend/src/layouts/MainLayout.tsx" ><b>MainLayout</b>&nbsp;&nbsp;&nbsp;(frontend/.../MainLayout.tsx)</a>
+                        </li>
+                        <li>
+                            <a href="#migrate" title="backend/src/db/migrate.ts" ><b>migrate</b>&nbsp;&nbsp;&nbsp;(backend/.../migrate.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MONGODB_URI" title="backend/src/config/database.ts" ><b>MONGODB_URI</b>&nbsp;&nbsp;&nbsp;(backend/.../database.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#options" title="backend/src/config/swagger.ts" ><b>options</b>&nbsp;&nbsp;&nbsp;(backend/.../swagger.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Order" title="backend/src/models/Order.ts" ><b>Order</b>&nbsp;&nbsp;&nbsp;(backend/.../Order.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#orderController" title="backend/src/routes/order.routes.ts" ><b>orderController</b>&nbsp;&nbsp;&nbsp;(backend/.../order.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#OrderSchema" title="backend/src/models/Order.ts" ><b>OrderSchema</b>&nbsp;&nbsp;&nbsp;(backend/.../Order.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Payment" title="backend/src/models/payment.model.ts" ><b>Payment</b>&nbsp;&nbsp;&nbsp;(backend/.../payment.model.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PaymentSchema" title="backend/src/models/payment.model.ts" ><b>PaymentSchema</b>&nbsp;&nbsp;&nbsp;(backend/.../payment.model.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#pdfController" title="backend/src/routes/pdf.routes.ts" ><b>pdfController</b>&nbsp;&nbsp;&nbsp;(backend/.../pdf.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#pool" title="backend/src/db/migrate.ts" ><b>pool</b>&nbsp;&nbsp;&nbsp;(backend/.../migrate.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#port" title="backend/src/server.ts" ><b>port</b>&nbsp;&nbsp;&nbsp;(backend/.../server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#prisma" title="backend/prisma/seed.ts" ><b>prisma</b>&nbsp;&nbsp;&nbsp;(backend/.../seed.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#prisma" title="backend/src/server.ts" ><b>prisma</b>&nbsp;&nbsp;&nbsp;(backend/.../server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#prisma" title="backend/src/config/database.ts" ><b>prisma</b>&nbsp;&nbsp;&nbsp;(backend/.../database.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#prisma" title="backend/src/lib/prisma.ts" ><b>prisma</b>&nbsp;&nbsp;&nbsp;(backend/.../prisma.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#prisma" title="backend/src/routes/auth.ts" ><b>prisma</b>&nbsp;&nbsp;&nbsp;(backend/.../auth.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#prisma" title="backend/src/scripts/seedDemo.ts" ><b>prisma</b>&nbsp;&nbsp;&nbsp;(backend/.../seedDemo.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Product" title="backend/src/models/Product.ts" ><b>Product</b>&nbsp;&nbsp;&nbsp;(backend/.../Product.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#productController" title="backend/src/routes/product.routes.ts" ><b>productController</b>&nbsp;&nbsp;&nbsp;(backend/.../product.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Products" title="frontend/src/pages/Products.tsx" ><b>Products</b>&nbsp;&nbsp;&nbsp;(frontend/.../Products.tsx)</a>
+                        </li>
+                        <li>
+                            <a href="#ProductSchema" title="backend/src/models/Product.ts" ><b>ProductSchema</b>&nbsp;&nbsp;&nbsp;(backend/.../Product.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#productService" title="frontend/src/services/productService.ts" ><b>productService</b>&nbsp;&nbsp;&nbsp;(frontend/.../productService.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ProtectedRoute" title="frontend/src/components/ProtectedRoute.tsx" ><b>ProtectedRoute</b>&nbsp;&nbsp;&nbsp;(frontend/.../ProtectedRoute.tsx)</a>
+                        </li>
+                        <li>
+                            <a href="#register" title="backend/src/routes/auth.routes.ts" ><b>register</b>&nbsp;&nbsp;&nbsp;(backend/.../auth.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#reportController" title="backend/src/controllers/reportController.ts" ><b>reportController</b>&nbsp;&nbsp;&nbsp;(backend/.../reportController.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#reportController" title="backend/src/routes/reportRoutes.ts" ><b>reportController</b>&nbsp;&nbsp;&nbsp;(backend/.../reportRoutes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#reportWebVitals" title="frontend/src/reportWebVitals.ts" ><b>reportWebVitals</b>&nbsp;&nbsp;&nbsp;(frontend/.../reportWebVitals.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#root" title="frontend/src/index.tsx" ><b>root</b>&nbsp;&nbsp;&nbsp;(frontend/.../index.tsx)</a>
+                        </li>
+                        <li>
+                            <a href="#router" title="backend/src/routes/appointments.ts" ><b>router</b>&nbsp;&nbsp;&nbsp;(backend/.../appointments.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#router" title="backend/src/routes/auth.routes.ts" ><b>router</b>&nbsp;&nbsp;&nbsp;(backend/.../auth.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#router" title="backend/src/routes/auth.ts" ><b>router</b>&nbsp;&nbsp;&nbsp;(backend/.../auth.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#router" title="backend/src/routes/clients.ts" ><b>router</b>&nbsp;&nbsp;&nbsp;(backend/.../clients.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#router" title="backend/src/routes/config.routes.ts" ><b>router</b>&nbsp;&nbsp;&nbsp;(backend/.../config.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#router" title="backend/src/routes/customer.routes.ts" ><b>router</b>&nbsp;&nbsp;&nbsp;(backend/.../customer.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#router" title="backend/src/routes/dashboard.routes.ts" ><b>router</b>&nbsp;&nbsp;&nbsp;(backend/.../dashboard.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#router" title="backend/src/routes/dashboard.ts" ><b>router</b>&nbsp;&nbsp;&nbsp;(backend/.../dashboard.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#router" title="backend/src/routes/email.routes.ts" ><b>router</b>&nbsp;&nbsp;&nbsp;(backend/.../email.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#router" title="backend/src/routes/index.ts" ><b>router</b>&nbsp;&nbsp;&nbsp;(backend/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#router" title="backend/src/routes/invoice.routes.ts" ><b>router</b>&nbsp;&nbsp;&nbsp;(backend/.../invoice.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#router" title="backend/src/routes/notifications.ts" ><b>router</b>&nbsp;&nbsp;&nbsp;(backend/.../notifications.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#router" title="backend/src/routes/order.routes.ts" ><b>router</b>&nbsp;&nbsp;&nbsp;(backend/.../order.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#router" title="backend/src/routes/pdf.routes.ts" ><b>router</b>&nbsp;&nbsp;&nbsp;(backend/.../pdf.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#router" title="backend/src/routes/product.routes.ts" ><b>router</b>&nbsp;&nbsp;&nbsp;(backend/.../product.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#router" title="backend/src/routes/reportRoutes.ts" ><b>router</b>&nbsp;&nbsp;&nbsp;(backend/.../reportRoutes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#router" title="backend/src/routes/stock.routes.ts" ><b>router</b>&nbsp;&nbsp;&nbsp;(backend/.../stock.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#router" title="backend/src/routes/tasks.ts" ><b>router</b>&nbsp;&nbsp;&nbsp;(backend/.../tasks.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#router" title="backend/src/routes/user.routes.ts" ><b>router</b>&nbsp;&nbsp;&nbsp;(backend/.../user.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#router" title="backend/src/routes/userProfile.ts" ><b>router</b>&nbsp;&nbsp;&nbsp;(backend/.../userProfile.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#specs" title="backend/src/config/swagger.ts" ><b>specs</b>&nbsp;&nbsp;&nbsp;(backend/.../swagger.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Stock" title="backend/src/models/stock.model.ts" ><b>Stock</b>&nbsp;&nbsp;&nbsp;(backend/.../stock.model.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#stockController" title="backend/src/routes/stock.routes.ts" ><b>stockController</b>&nbsp;&nbsp;&nbsp;(backend/.../stock.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#StockMetrics" title="backend/src/models/stockMetrics.model.ts" ><b>StockMetrics</b>&nbsp;&nbsp;&nbsp;(backend/.../stockMetrics.model.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#StockMetricsSchema" title="backend/src/models/stockMetrics.model.ts" ><b>StockMetricsSchema</b>&nbsp;&nbsp;&nbsp;(backend/.../stockMetrics.model.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#StockSchema" title="backend/src/models/stock.model.ts" ><b>StockSchema</b>&nbsp;&nbsp;&nbsp;(backend/.../stock.model.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#testConnections" title="frontend/src/utils/testServices.ts" ><b>testConnections</b>&nbsp;&nbsp;&nbsp;(frontend/.../testServices.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#theme" title="frontend/src/theme.ts" ><b>theme</b>&nbsp;&nbsp;&nbsp;(frontend/.../theme.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#" title="backend/src/middleware/validate.ts" ><b></b>&nbsp;&nbsp;&nbsp;(backend/.../validate.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#upload" title="backend/src/routes/userProfile.ts" ><b>upload</b>&nbsp;&nbsp;&nbsp;(backend/.../userProfile.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#userController" title="backend/src/routes/user.routes.ts" ><b>userController</b>&nbsp;&nbsp;&nbsp;(backend/.../user.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#validate" title="backend/src/middleware/validate.ts" ><b>validate</b>&nbsp;&nbsp;&nbsp;(backend/.../validate.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#validateOrderId" title="backend/src/middleware/validation.ts" ><b>validateOrderId</b>&nbsp;&nbsp;&nbsp;(backend/.../validation.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#validateOrderId" title="backend/src/routes/billing.ts" ><b>validateOrderId</b>&nbsp;&nbsp;&nbsp;(backend/.../billing.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#" title="backend/src/validations/clientValidations.ts" ><b></b>&nbsp;&nbsp;&nbsp;(backend/.../clientValidations.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>frontend/src/services/afipService.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="afipService"></a>
+                    <span class="name">
+                        <span ><b>afipService</b></span>
+                        <a href="#afipService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  async createInvoice(invoice: CreateInvoice): Promise&lt;Invoice&gt; {
+    const { data } &#x3D; await api.post(&#x27;/afip/invoices&#x27;, invoice);
+    return data;
+  },
+
+  async getInvoice(id: string): Promise&lt;Invoice&gt; {
+    const { data } &#x3D; await api.get(&#x60;/afip/invoices/${id}&#x60;);
+    return data;
+  },
+
+  async getInvoicePdf(id: string): Promise&lt;Blob&gt; {
+    const { data } &#x3D; await api.get(&#x60;/afip/invoices/${id}/pdf&#x60;, {
+      responseType: &#x27;blob&#x27;
+    });
+    return data;
+  },
+
+  async validateCuit(cuit: string): Promise&lt;boolean&gt; {
+    const { data } &#x3D; await api.get(&#x60;/afip/validate-cuit/${cuit}&#x60;);
+    return data.valid;
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>frontend/src/pages/Analytics.tsx</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Analytics"></a>
+                    <span class="name">
+                        <span ><b>Analytics</b></span>
+                        <a href="#Analytics"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>React.FC</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {
+  const data &#x3D; [
+    { month: &#x27;Jan&#x27;, sales: 4000, revenue: 2400 },
+    { month: &#x27;Feb&#x27;, sales: 3000, revenue: 1398 },
+    { month: &#x27;Mar&#x27;, sales: 2000, revenue: 9800 },
+    { month: &#x27;Apr&#x27;, sales: 2780, revenue: 3908 },
+    { month: &#x27;May&#x27;, sales: 1890, revenue: 4800 },
+    { month: &#x27;Jun&#x27;, sales: 2390, revenue: 3800 },
+  ];
+
+  return (
+    &lt;Box p&#x3D;{3}&gt;
+      &lt;Typography variant&#x3D;&quot;h4&quot; gutterBottom&gt;
+        Analytics Overview
+      &lt;/Typography&gt;
+      &lt;Grid container spacing&#x3D;{3}&gt;
+        &lt;Grid item xs&#x3D;{12}&gt;
+          &lt;Paper sx&#x3D;{{ p: 2 }}&gt;
+            &lt;Typography variant&#x3D;&quot;h6&quot; gutterBottom&gt;
+              Sales &amp; Revenue Trends
+            &lt;/Typography&gt;
+            &lt;LineChart width&#x3D;{800} height&#x3D;{400} data&#x3D;{data}&gt;
+              &lt;CartesianGrid strokeDasharray&#x3D;&quot;3 3&quot; /&gt;
+              &lt;XAxis dataKey&#x3D;&quot;month&quot; /&gt;
+              &lt;YAxis /&gt;
+              &lt;Tooltip /&gt;
+              &lt;Legend /&gt;
+              &lt;Line type&#x3D;&quot;monotone&quot; dataKey&#x3D;&quot;sales&quot; stroke&#x3D;&quot;#8884d8&quot; /&gt;
+              &lt;Line type&#x3D;&quot;monotone&quot; dataKey&#x3D;&quot;revenue&quot; stroke&#x3D;&quot;#82ca9d&quot; /&gt;
+            &lt;/LineChart&gt;
+          &lt;/Paper&gt;
+        &lt;/Grid&gt;
+      &lt;/Grid&gt;
+    &lt;/Box&gt;
+  );
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>frontend/src/services/api.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="api"></a>
+                    <span class="name">
+                        <span ><b>api</b></span>
+                        <a href="#api"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>axios.create({
+  baseURL: API_URL,
+  headers: {
+    &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,
+  },
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="API_URL"></a>
+                    <span class="name">
+                        <span ><b>API_URL</b></span>
+                        <a href="#API_URL"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>process.env.REACT_APP_API_URL || &#x27;http://localhost:3001/api&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/app.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="app"></a>
+                    <span class="name">
+                        <span ><b>app</b></span>
+                        <a href="#app"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>express()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initializeApp"></a>
+                    <span class="name">
+                        <span ><b>initializeApp</b></span>
+                        <a href="#initializeApp"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async () &#x3D;&gt; {
+  try {
+    // Connect only to PostgreSQL
+    await connectPostgresDB();
+    console.log(&#x27;Database connection established&#x27;);
+
+    // Then register routes
+    app.use(&#x27;/api/auth&#x27;, authRoutes);
+    app.use(&#x27;/api/users&#x27;, userRoutes);
+    app.use(&#x27;/api/reports&#x27;, reportRoutes);
+    app.use(&#x27;/api/customers&#x27;, customerRoutes);
+    app.use(&#x27;/api/products&#x27;, productRoutes);
+    app.use(&#x27;/api/orders&#x27;, orderRoutes);
+    // Remove unused route
+    // app.use(&#x27;/api/config&#x27;, configRoutes);
+    app.use(&#x27;/api/clients&#x27;, clientRoutes);
+    app.use(&#x27;/api/tasks&#x27;, taskRoutes);
+    app.use(&#x27;/api/appointments&#x27;, appointmentRoutes);
+    app.use(&#x27;/api/notifications&#x27;, notificationRoutes);
+    // Remove duplicate auth routes line
+    // Error handling middleware
+    app.use((_err: Error, _req: Request, res: Response, _next: NextFunction) &#x3D;&gt; {
+      console.error(&#x27;Error:&#x27;, _err);
+      res.status(500).json({ error: &#x27;Internal server error&#x27; });
+    });
+
+    // 404 handler
+    app.use((_req: Request, res: Response) &#x3D;&gt; {
+      res.status(404).json({ error: &#x27;Route not found&#x27; });
+    });
+
+    let server: Server;
+    const PORT &#x3D; process.env.PORT || 3002;
+    
+    if (process.env.NODE_ENV &#x3D;&#x3D;&#x3D; &#x27;production&#x27;) {
+      const sslOptions &#x3D; {
+        key: fs.readFileSync(process.env.SSL_KEY_PATH as string),
+        cert: fs.readFileSync(process.env.SSL_CERT_PATH as string)
+      };
+      server &#x3D; https.createServer(sslOptions, app);
+      server.listen(PORT);
+    } else {
+      server &#x3D; app.listen(PORT);
+    }
+
+    console.log(&#x60;🚀 Server running on port ${PORT} in ${process.env.NODE_ENV} mode&#x60;);
+    // Graceful shutdown handling
+    const shutdown &#x3D; async () &#x3D;&gt; {
+      console.log(&#x27;Received shutdown signal. Closing connections...&#x27;);
+      
+      server.close((_err?: Error) &#x3D;&gt; {
+        console.log(&#x27;HTTP server closed&#x27;);
+      });
+    
+      try {
+        await prisma.$disconnect();
+        console.log(&#x27;Database connection closed&#x27;);
+        process.exit(0);
+      } catch (err) {
+        console.error(&#x27;Error during shutdown:&#x27;, err);
+        process.exit(1);
+      }
+    };
+
+    process.on(&#x27;SIGTERM&#x27;, shutdown);
+    process.on(&#x27;SIGINT&#x27;, shutdown);
+
+  } catch (error) {
+    console.error(&#x27;Failed to initialize application:&#x27;, error);
+    process.exit(1);
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/server.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="app"></a>
+                    <span class="name">
+                        <span ><b>app</b></span>
+                        <a href="#app"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>express()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="port"></a>
+                    <span class="name">
+                        <span ><b>port</b></span>
+                        <a href="#port"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>process.env.PORT || 3001</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prisma"></a>
+                    <span class="name">
+                        <span ><b>prisma</b></span>
+                        <a href="#prisma"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new PrismaClient()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>frontend/src/App.tsx</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="App"></a>
+                    <span class="name">
+                        <span ><b>App</b></span>
+                        <a href="#App"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>React.FC</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {
+  return (
+    &lt;ThemeProvider theme&#x3D;{theme}&gt;
+      &lt;CssBaseline /&gt;
+      &lt;Router&gt;
+        &lt;Routes&gt;
+          &lt;Route path&#x3D;&quot;/login&quot; element&#x3D;{&lt;Login /&gt;} /&gt;
+          &lt;Route path&#x3D;&quot;/&quot; element&#x3D;{
+            &lt;ProtectedRoute&gt;
+              &lt;MainLayout&gt;
+                &lt;Routes&gt;
+                  &lt;Route index element&#x3D;{&lt;div&gt;Dashboard&lt;/div&gt;} /&gt;
+                  &lt;Route path&#x3D;&quot;/clients&quot; element&#x3D;{&lt;div&gt;Clients&lt;/div&gt;} /&gt;
+                  &lt;Route path&#x3D;&quot;/products&quot; element&#x3D;{&lt;div&gt;Products&lt;/div&gt;} /&gt;
+                  &lt;Route path&#x3D;&quot;/analytics&quot; element&#x3D;{&lt;div&gt;Analytics&lt;/div&gt;} /&gt;
+                &lt;/Routes&gt;
+              &lt;/MainLayout&gt;
+            &lt;/ProtectedRoute&gt;
+          } /&gt;
+        &lt;/Routes&gt;
+      &lt;/Router&gt;
+    &lt;/ThemeProvider&gt;
+  );
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/middleware/auth.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="auth"></a>
+                    <span class="name">
+                        <span ><b>auth</b></span>
+                        <a href="#auth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async (req: AuthRequest, res: Response, next: NextFunction) &#x3D;&gt; {
+  try {
+    const token &#x3D; req.header(&#x27;Authorization&#x27;)?.replace(&#x27;Bearer &#x27;, &#x27;&#x27;);
+
+    if (!token) {
+      throw new Error();
+    }
+
+    const decoded &#x3D; jwt.verify(token, process.env.JWT_SECRET!);
+    req.user &#x3D; decoded;
+    next();
+  } catch (error) {
+    res.status(401).json({ error: &#x27;Please authenticate&#x27; });
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/routes/userProfile.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="authMiddleware"></a>
+                    <span class="name">
+                        <span ><b>authMiddleware</b></span>
+                        <a href="#authMiddleware"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(req: Request, res: Response, next: NextFunction) &#x3D;&gt; {
+  auth(req as AuthRequest, res, next);
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleAvatarUpload"></a>
+                    <span class="name">
+                        <span ><b>handleAvatarUpload</b></span>
+                        <a href="#handleAvatarUpload"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async (req: Request, res: Response, next: NextFunction): Promise&lt;void&gt; &#x3D;&gt; {
+  try {
+    if (!req.file) {
+      res.status(400).json({ error: &#x27;No file uploaded&#x27; });
+      return;
+    }
+    
+    const userId &#x3D; (req as AuthRequest).user.id;
+    const avatarUrl &#x3D; req.file.path;
+    
+    // Update user&#x27;s avatar in database
+    const updateData &#x3D; {
+      ...(avatarUrl &amp;&amp; { avatar: avatarUrl })
+    } as const;
+    
+    await prisma.user.update({
+      where: { id: userId },  // Remove parseInt here as well
+      data: updateData
+    });
+
+    res.status(200).json({ 
+      message: &#x27;Avatar uploaded successfully&#x27;,
+      avatarUrl 
+    });
+  } catch (error) {
+    next(error);
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>express.Router()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="upload"></a>
+                    <span class="name">
+                        <span ><b>upload</b></span>
+                        <a href="#upload"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>multer({
+  storage: multer.diskStorage({
+    destination: path.join(__dirname, &#x27;../../uploads/avatars&#x27;),
+    filename: (_req, file, cb): void &#x3D;&gt; {
+      const uniqueSuffix &#x3D; &#x60;${Date.now()}-${Math.round(Math.random() * 1E9)}&#x60;;
+      cb(null, &#x60;${uniqueSuffix}-${file.originalname}&#x60;);
+    }
+  })
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>frontend/src/services/authService.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="authService"></a>
+                    <span class="name">
+                        <span ><b>authService</b></span>
+                        <a href="#authService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  async login(credentials: { email: string; password: string }) {
+    try {
+      const response &#x3D; await api.post(&#x27;/auth/login&#x27;, credentials);
+      localStorage.setItem(&#x27;token&#x27;, response.data.token);
+      return response.data;
+    } catch (error: any) {
+      console.error(&#x27;Login error:&#x27;, error.response?.data || error.message);
+      throw error;
+    }
+  },
+
+  async logout() {
+    localStorage.removeItem(&#x27;token&#x27;);
+  },
+
+  isAuthenticated() {
+    return !!localStorage.getItem(&#x27;token&#x27;);
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>frontend/src/pages/Clients.tsx</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Clients"></a>
+                    <span class="name">
+                        <span ><b>Clients</b></span>
+                        <a href="#Clients"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>React.FC</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {
+  const clients &#x3D; [
+    { id: 1, name: &#x27;John Doe&#x27;, email: &#x27;john@example.com&#x27;, phone: &#x27;123-456-7890&#x27;, membership: &#x27;Premium&#x27; },
+    { id: 2, name: &#x27;Jane Smith&#x27;, email: &#x27;jane@example.com&#x27;, phone: &#x27;098-765-4321&#x27;, membership: &#x27;Basic&#x27; },
+    { id: 3, name: &#x27;Mike Johnson&#x27;, email: &#x27;mike@example.com&#x27;, phone: &#x27;555-555-5555&#x27;, membership: &#x27;Premium&#x27; },
+  ];
+
+  return (
+    &lt;Box p&#x3D;{3}&gt;
+      &lt;Box display&#x3D;&quot;flex&quot; justifyContent&#x3D;&quot;space-between&quot; alignItems&#x3D;&quot;center&quot; mb&#x3D;{3}&gt;
+        &lt;Typography variant&#x3D;&quot;h4&quot;&gt;Clients&lt;/Typography&gt;
+        &lt;Button variant&#x3D;&quot;contained&quot; startIcon&#x3D;{&lt;AddIcon /&gt;}&gt;
+          Add Client
+        &lt;/Button&gt;
+      &lt;/Box&gt;
+      
+      &lt;TableContainer component&#x3D;{Paper}&gt;
+        &lt;Table&gt;
+          &lt;TableHead&gt;
+            &lt;TableRow&gt;
+              &lt;TableCell&gt;Name&lt;/TableCell&gt;
+              &lt;TableCell&gt;Email&lt;/TableCell&gt;
+              &lt;TableCell&gt;Phone&lt;/TableCell&gt;
+              &lt;TableCell&gt;Membership&lt;/TableCell&gt;
+              &lt;TableCell&gt;Actions&lt;/TableCell&gt;
+            &lt;/TableRow&gt;
+          &lt;/TableHead&gt;
+          &lt;TableBody&gt;
+            {clients.map((client) &#x3D;&gt; (
+              &lt;TableRow key&#x3D;{client.id}&gt;
+                &lt;TableCell&gt;{client.name}&lt;/TableCell&gt;
+                &lt;TableCell&gt;{client.email}&lt;/TableCell&gt;
+                &lt;TableCell&gt;{client.phone}&lt;/TableCell&gt;
+                &lt;TableCell&gt;{client.membership}&lt;/TableCell&gt;
+                &lt;TableCell&gt;
+                  &lt;Button size&#x3D;&quot;small&quot; color&#x3D;&quot;primary&quot;&gt;Edit&lt;/Button&gt;
+                  &lt;Button size&#x3D;&quot;small&quot; color&#x3D;&quot;error&quot;&gt;Delete&lt;/Button&gt;
+                &lt;/TableCell&gt;
+              &lt;/TableRow&gt;
+            ))}
+          &lt;/TableBody&gt;
+        &lt;/Table&gt;
+      &lt;/TableContainer&gt;
+    &lt;/Box&gt;
+  );
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>frontend/src/services/clientService.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clientService"></a>
+                    <span class="name">
+                        <span ><b>clientService</b></span>
+                        <a href="#clientService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  async getAll(): Promise&lt;Client[]&gt; {
+    const { data } &#x3D; await api.get(&#x27;/clients&#x27;);
+    return data;
+  },
+
+  async getById(id: string): Promise&lt;Client&gt; {
+    const { data } &#x3D; await api.get(&#x60;/clients/${id}&#x60;);
+    return data;
+  },
+
+  async create(client: ClientCreate): Promise&lt;Client&gt; {
+    const { data } &#x3D; await api.post(&#x27;/clients&#x27;, client);
+    return data;
+  },
+
+  async update(id: string, client: Partial&lt;ClientCreate&gt;): Promise&lt;Client&gt; {
+    const { data } &#x3D; await api.put(&#x60;/clients/${id}&#x60;, client);
+    return data;
+  },
+
+  async delete(id: string): Promise&lt;void&gt; {
+    await api.delete(&#x60;/clients/${id}&#x60;);
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/routes/config.routes.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="configController"></a>
+                    <span class="name">
+                        <span ><b>configController</b></span>
+                        <a href="#configController"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new ConfigController()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleRequest"></a>
+                    <span class="name">
+                        <span ><b>handleRequest</b></span>
+                        <a href="#handleRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(fn: (req: Request, res: Response, next: NextFunction) &#x3D;&gt; Promise&lt;void&gt;) &#x3D;&gt; {
+  return async (req: Request, res: Response, next: NextFunction) &#x3D;&gt; {
+    try {
+      await fn(req, res, next);
+    } catch (error) {
+      next(error);
+    }
+  };
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>express.Router()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/controllers/configController.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ConfigSchema"></a>
+                    <span class="name">
+                        <span ><b>ConfigSchema</b></span>
+                        <a href="#ConfigSchema"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>z.object({
+  key: z.string().min(1),
+  value: z.string().min(1)
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/config/database.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="connectMongoDb"></a>
+                    <span class="name">
+                        <span ><b>connectMongoDb</b></span>
+                        <a href="#connectMongoDb"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async (): Promise&lt;void&gt; &#x3D;&gt; {
+  try {
+    const options &#x3D; {
+      autoIndex: true,
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 45000,
+    };
+
+    await mongoose.connect(MONGODB_URI, options);
+    console.log(&#x27;✅ MongoDB connected successfully&#x27;);
+  } catch (error) {
+    console.error(&#x27;❌ MongoDB connection error:&#x27;, error);
+    process.exit(1);
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="connectPostgresDB"></a>
+                    <span class="name">
+                        <span ><b>connectPostgresDB</b></span>
+                        <a href="#connectPostgresDB"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async () &#x3D;&gt; {
+  try {
+    await prisma.$connect();
+    console.log(&#x27;✅ PostgreSQL connected successfully (managed by Prisma)&#x27;);
+  } catch (error) {
+    console.error(&#x27;❌ PostgreSQL connection error:&#x27;, error);
+    throw error;
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MONGODB_URI"></a>
+                    <span class="name">
+                        <span ><b>MONGODB_URI</b></span>
+                        <a href="#MONGODB_URI"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>process.env.MONGODB_URI || &#x27;mongodb://localhost:27017/crm-sports&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prisma"></a>
+                    <span class="name">
+                        <span ><b>prisma</b></span>
+                        <a href="#prisma"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new PrismaClient()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/validations/clientValidations.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createClientValidation"></a>
+                    <span class="name">
+                        <span ><b>createClientValidation</b></span>
+                        <a href="#createClientValidation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  body(&#x27;name&#x27;)
+    .trim()
+    .notEmpty()
+    .withMessage(&#x27;Name is required&#x27;)
+    .isLength({ min: 2, max: 100 })
+    .withMessage(&#x27;Name must be between 2 and 100 characters&#x27;),
+  
+  body(&#x27;email&#x27;)
+    .trim()
+    .notEmpty()
+    .withMessage(&#x27;Email is required&#x27;)
+    .isEmail()
+    .withMessage(&#x27;Invalid email format&#x27;)
+    .normalizeEmail(),
+    
+  body(&#x27;phone&#x27;)
+    .optional()
+    .trim()
+    .matches(/^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/)
+    .withMessage(&#x27;Invalid phone number format&#x27;),
+    
+  body(&#x27;company&#x27;)
+    .optional()
+    .trim()
+    .isLength({ max: 100 })
+    .withMessage(&#x27;Company name must not exceed 100 characters&#x27;)
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="expressValidator"></a>
+                    <span class="name">
+                        <span ><b>expressValidator</b></span>
+                        <a href="#expressValidator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>require(&#x27;express-validator&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name=""></a>
+                    <span class="name">
+                        <span ><b></b></span>
+                        <a href="#"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>expressValidator</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/db/migrations/001_initial_schema.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createInitialSchema"></a>
+                    <span class="name">
+                        <span ><b>createInitialSchema</b></span>
+                        <a href="#createInitialSchema"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async () &#x3D;&gt; {
+  try {
+    // Products table
+    await pool.query(&#x60;
+      CREATE TABLE IF NOT EXISTS products (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        description TEXT,
+        price DECIMAL(10,2) NOT NULL,
+        stock INTEGER NOT NULL DEFAULT 0,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      );
+    &#x60;);
+
+    // Customers table
+    await pool.query(&#x60;
+      CREATE TABLE IF NOT EXISTS customers (
+        id SERIAL PRIMARY KEY,
+        first_name VARCHAR(100) NOT NULL,
+        last_name VARCHAR(100) NOT NULL,
+        email VARCHAR(255) UNIQUE NOT NULL,
+        phone VARCHAR(20),
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      );
+    &#x60;);
+
+    // Orders table
+    await pool.query(&#x60;
+      CREATE TABLE IF NOT EXISTS orders (
+        id SERIAL PRIMARY KEY,
+        customer_id INTEGER REFERENCES customers(id),
+        total DECIMAL(10,2) NOT NULL,
+        status VARCHAR(50) NOT NULL DEFAULT &#x27;pending&#x27;,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      );
+    &#x60;);
+
+    // Order items table
+    await pool.query(&#x60;
+      CREATE TABLE IF NOT EXISTS order_items (
+        id SERIAL PRIMARY KEY,
+        order_id INTEGER REFERENCES orders(id),
+        product_id INTEGER REFERENCES products(id),
+        quantity INTEGER NOT NULL,
+        price DECIMAL(10,2) NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      );
+    &#x60;);
+
+    console.log(&#x27;Initial schema created successfully&#x27;);
+  } catch (error) {
+    console.error(&#x27;Error creating initial schema:&#x27;, error);
+    throw error;
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/db/migrations/001_create_products.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createProductsTable"></a>
+                    <span class="name">
+                        <span ><b>createProductsTable</b></span>
+                        <a href="#createProductsTable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async () &#x3D;&gt; {
+  try {
+    await pool.query(&#x60;
+      CREATE TABLE IF NOT EXISTS products (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        description TEXT,
+        price DECIMAL(10,2) NOT NULL,
+        stock INTEGER NOT NULL DEFAULT 0,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      );
+    &#x60;);
+    console.log(&#x27;Products table created successfully&#x27;);
+  } catch (error) {
+    console.error(&#x27;Error creating products table:&#x27;, error);
+    throw error;
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/models/Customer.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Customer"></a>
+                    <span class="name">
+                        <span ><b>Customer</b></span>
+                        <a href="#Customer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>mongoose.model&lt;ICustomer&gt;(&#x27;Customer&#x27;, CustomerSchema)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CustomerSchema"></a>
+                    <span class="name">
+                        <span ><b>CustomerSchema</b></span>
+                        <a href="#CustomerSchema"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Schema({
+  firstName: { 
+    type: String, 
+    required: true,
+    trim: true
+  },
+  lastName: { 
+    type: String, 
+    required: true,
+    trim: true
+  },
+  email: { 
+    type: String, 
+    required: true, 
+    unique: true,
+    lowercase: true,
+    trim: true
+  },
+  phone: { 
+    type: String,
+    trim: true
+  },
+  status: { 
+    type: String, 
+    enum: [&#x27;active&#x27;, &#x27;inactive&#x27;], 
+    default: &#x27;active&#x27; 
+  },
+  totalPurchases: { 
+    type: Number, 
+    default: 0 
+  },
+  lastPurchase: { 
+    type: Date 
+  }
+}, {
+  timestamps: true,
+  toJSON: { virtuals: true },
+  toObject: { virtuals: true }
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/routes/customer.routes.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="customerController"></a>
+                    <span class="name">
+                        <span ><b>customerController</b></span>
+                        <a href="#customerController"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new CustomerController()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleRequest"></a>
+                    <span class="name">
+                        <span ><b>handleRequest</b></span>
+                        <a href="#handleRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(fn: (req: Request, res: Response) &#x3D;&gt; Promise&lt;any&gt;) &#x3D;&gt; {
+  return async (req: Request, res: Response, next: NextFunction) &#x3D;&gt; {
+    try {
+      await fn(req, res);
+    } catch (error) {
+      next(error);
+    }
+  };
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>express.Router()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>frontend/src/pages/Dashboard.tsx</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Dashboard"></a>
+                    <span class="name">
+                        <span ><b>Dashboard</b></span>
+                        <a href="#Dashboard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>React.FC</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {
+  return (
+    &lt;Box p&#x3D;{3}&gt;
+      &lt;Typography variant&#x3D;&quot;h4&quot; gutterBottom&gt;
+        Welcome to CRM Sports
+      &lt;/Typography&gt;
+      &lt;Grid container spacing&#x3D;{3}&gt;
+        &lt;Grid item xs&#x3D;{12} sm&#x3D;{4}&gt;
+          &lt;Paper sx&#x3D;{{ p: 2, display: &#x27;flex&#x27;, alignItems: &#x27;center&#x27;, gap: 2 }}&gt;
+            &lt;PeopleOutline /&gt;
+            &lt;div&gt;
+              &lt;Typography variant&#x3D;&quot;h6&quot;&gt;Active Clients&lt;/Typography&gt;
+              &lt;Typography variant&#x3D;&quot;h4&quot;&gt;150&lt;/Typography&gt;
+            &lt;/div&gt;
+          &lt;/Paper&gt;
+        &lt;/Grid&gt;
+        &lt;Grid item xs&#x3D;{12} sm&#x3D;{4}&gt;
+          &lt;Paper sx&#x3D;{{ p: 2, display: &#x27;flex&#x27;, alignItems: &#x27;center&#x27;, gap: 2 }}&gt;
+            &lt;ShoppingCart /&gt;
+            &lt;div&gt;
+              &lt;Typography variant&#x3D;&quot;h6&quot;&gt;Products&lt;/Typography&gt;
+              &lt;Typography variant&#x3D;&quot;h4&quot;&gt;45&lt;/Typography&gt;
+            &lt;/div&gt;
+          &lt;/Paper&gt;
+        &lt;/Grid&gt;
+        &lt;Grid item xs&#x3D;{12} sm&#x3D;{4}&gt;
+          &lt;Paper sx&#x3D;{{ p: 2, display: &#x27;flex&#x27;, alignItems: &#x27;center&#x27;, gap: 2 }}&gt;
+            &lt;TrendingUp /&gt;
+            &lt;div&gt;
+              &lt;Typography variant&#x3D;&quot;h6&quot;&gt;Monthly Revenue&lt;/Typography&gt;
+              &lt;Typography variant&#x3D;&quot;h4&quot;&gt;$12,450&lt;/Typography&gt;
+            &lt;/div&gt;
+          &lt;/Paper&gt;
+        &lt;/Grid&gt;
+      &lt;/Grid&gt;
+    &lt;/Box&gt;
+  );
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/routes/dashboard.routes.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dashboardController"></a>
+                    <span class="name">
+                        <span ><b>dashboardController</b></span>
+                        <a href="#dashboardController"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new DashboardController()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleRequest"></a>
+                    <span class="name">
+                        <span ><b>handleRequest</b></span>
+                        <a href="#handleRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(fn: (req: Request, res: Response) &#x3D;&gt; Promise&lt;any&gt;) &#x3D;&gt; {
+  return async (req: Request, res: Response, next: NextFunction) &#x3D;&gt; {
+    try {
+      await fn(req, res);
+    } catch (error) {
+      next(error);
+    }
+  };
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>express.Router()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>frontend/src/layouts/MainLayout.tsx</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="drawerWidth"></a>
+                    <span class="name">
+                        <span ><b>drawerWidth</b></span>
+                        <a href="#drawerWidth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>240</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MainLayout"></a>
+                    <span class="name">
+                        <span ><b>MainLayout</b></span>
+                        <a href="#MainLayout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>React.FC&lt;literal type&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>({ children }) &#x3D;&gt; {
+  const navigate &#x3D; useNavigate();
+  const [mobileOpen, setMobileOpen] &#x3D; useState(false);
+  const [anchorEl, setAnchorEl] &#x3D; useState&lt;null | HTMLElement&gt;(null);
+
+  const handleMenu &#x3D; (event: React.MouseEvent&lt;HTMLElement&gt;) &#x3D;&gt; {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose &#x3D; () &#x3D;&gt; {
+    setAnchorEl(null);
+  };
+
+  const handleLogout &#x3D; async () &#x3D;&gt; {
+    await authService.logout();
+    navigate(&#x27;/login&#x27;);
+  };
+
+  const location &#x3D; useLocation();
+  
+  const menuItems &#x3D; [
+    { text: &#x27;Dashboard&#x27;, icon: &lt;Dashboard /&gt;, path: &#x27;/&#x27; },
+    { text: &#x27;Clients&#x27;, icon: &lt;People /&gt;, path: &#x27;/clients&#x27; },
+    { text: &#x27;Products&#x27;, icon: &lt;ShoppingCart /&gt;, path: &#x27;/products&#x27; },
+    { text: &#x27;Analytics&#x27;, icon: &lt;BarChart /&gt;, path: &#x27;/analytics&#x27; },
+  ];
+
+  const drawer &#x3D; (
+    &lt;div&gt;
+      &lt;Toolbar&gt;
+        &lt;Typography variant&#x3D;&quot;h6&quot; noWrap&gt;
+          CRM Sports
+        &lt;/Typography&gt;
+      &lt;/Toolbar&gt;
+      &lt;List&gt;
+        {menuItems.map((item) &#x3D;&gt; (
+          &lt;ListItem key&#x3D;{item.text} disablePadding&gt;
+            &lt;ListItemButton
+              selected&#x3D;{location.pathname &#x3D;&#x3D;&#x3D; item.path}
+              onClick&#x3D;{() &#x3D;&gt; navigate(item.path)}
+            &gt;
+              &lt;ListItemIcon&gt;{item.icon}&lt;/ListItemIcon&gt;
+              &lt;ListItemText primary&#x3D;{item.text} /&gt;
+            &lt;/ListItemButton&gt;
+          &lt;/ListItem&gt;
+        ))}
+      &lt;/List&gt;
+    &lt;/div&gt;
+  );
+
+  return (
+    &lt;Box sx&#x3D;{{ display: &#x27;flex&#x27; }}&gt;
+      &lt;AppBar position&#x3D;&quot;fixed&quot; sx&#x3D;{{ zIndex: (theme) &#x3D;&gt; theme.zIndex.drawer + 1 }}&gt;
+        &lt;Toolbar&gt;
+          &lt;IconButton
+            color&#x3D;&quot;inherit&quot;
+            edge&#x3D;&quot;start&quot;
+            onClick&#x3D;{() &#x3D;&gt; setMobileOpen(!mobileOpen)}
+            sx&#x3D;{{ mr: 2, display: { sm: &#x27;none&#x27; } }}
+          &gt;
+            &lt;MenuIcon /&gt;
+          &lt;/IconButton&gt;
+          &lt;Typography variant&#x3D;&quot;h6&quot; noWrap component&#x3D;&quot;div&quot; sx&#x3D;{{ flexGrow: 1 }}&gt;
+            CRM Sports
+          &lt;/Typography&gt;
+          &lt;div&gt;
+            &lt;IconButton
+              size&#x3D;&quot;large&quot;
+              onClick&#x3D;{handleMenu}
+              color&#x3D;&quot;inherit&quot;
+            &gt;
+              &lt;AccountCircle /&gt;
+            &lt;/IconButton&gt;
+            &lt;Menu
+              anchorEl&#x3D;{anchorEl}
+              open&#x3D;{Boolean(anchorEl)}
+              onClose&#x3D;{handleClose}
+            &gt;
+              &lt;MenuItem onClick&#x3D;{handleLogout}&gt;
+                &lt;ExitToApp sx&#x3D;{{ mr: 1 }} /&gt;
+                Logout
+              &lt;/MenuItem&gt;
+            &lt;/Menu&gt;
+          &lt;/div&gt;
+        &lt;/Toolbar&gt;
+      &lt;/AppBar&gt;
+      &lt;Box
+        component&#x3D;&quot;nav&quot;
+        sx&#x3D;{{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+      &gt;
+        &lt;Drawer
+          variant&#x3D;&quot;temporary&quot;
+          open&#x3D;{mobileOpen}
+          onClose&#x3D;{() &#x3D;&gt; setMobileOpen(false)}
+          ModalProps&#x3D;{{ keepMounted: true }}
+          sx&#x3D;{{
+            display: { xs: &#x27;block&#x27;, sm: &#x27;none&#x27; },
+            &#x27;&amp; .MuiDrawer-paper&#x27;: { boxSizing: &#x27;border-box&#x27;, width: drawerWidth },
+          }}
+        &gt;
+          {drawer}
+        &lt;/Drawer&gt;
+        &lt;Drawer
+          variant&#x3D;&quot;permanent&quot;
+          sx&#x3D;{{
+            display: { xs: &#x27;none&#x27;, sm: &#x27;block&#x27; },
+            &#x27;&amp; .MuiDrawer-paper&#x27;: { boxSizing: &#x27;border-box&#x27;, width: drawerWidth },
+          }}
+          open
+        &gt;
+          {drawer}
+        &lt;/Drawer&gt;
+      &lt;/Box&gt;
+      &lt;Box
+        component&#x3D;&quot;main&quot;
+        sx&#x3D;{{
+          flexGrow: 1,
+          p: 3,
+          width: { sm: &#x60;calc(100% - ${drawerWidth}px)&#x60; },
+          mt: 8,
+        }}
+      &gt;
+        {children}
+      &lt;/Box&gt;
+    &lt;/Box&gt;
+  );
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>frontend/node_modules 2/@testing-library/jest-dom/types/__tests__/bun/bun-custom-expect-types.test.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="element"></a>
+                    <span class="name">
+                        <span ><b>element</b></span>
+                        <a href="#element"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>HTMLElement</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>document.body</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>frontend/node_modules 2/@testing-library/jest-dom/types/__tests__/bun/bun-types.test.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="element"></a>
+                    <span class="name">
+                        <span ><b>element</b></span>
+                        <a href="#element"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>HTMLElement</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>document.body</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>frontend/node_modules 2/@testing-library/jest-dom/types/__tests__/jest/jest-custom-expect-types.test.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="element"></a>
+                    <span class="name">
+                        <span ><b>element</b></span>
+                        <a href="#element"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>HTMLElement</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>document.body</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>frontend/node_modules 2/@testing-library/jest-dom/types/__tests__/jest/jest-types.test.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="element"></a>
+                    <span class="name">
+                        <span ><b>element</b></span>
+                        <a href="#element"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>HTMLElement</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>document.body</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>frontend/node_modules 2/@testing-library/jest-dom/types/__tests__/jest-globals/jest-globals-custom-expect-types.test.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="element"></a>
+                    <span class="name">
+                        <span ><b>element</b></span>
+                        <a href="#element"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>HTMLElement</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>document.body</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>frontend/node_modules 2/@testing-library/jest-dom/types/__tests__/jest-globals/jest-globals-types.test.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="element"></a>
+                    <span class="name">
+                        <span ><b>element</b></span>
+                        <a href="#element"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>HTMLElement</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>document.body</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>frontend/node_modules 2/@testing-library/jest-dom/types/__tests__/vitest/vitest-custom-expect-types.test.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="element"></a>
+                    <span class="name">
+                        <span ><b>element</b></span>
+                        <a href="#element"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>HTMLElement</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>document.body</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>frontend/node_modules 2/@testing-library/jest-dom/types/__tests__/vitest/vitest-types.test.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="element"></a>
+                    <span class="name">
+                        <span ><b>element</b></span>
+                        <a href="#element"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>HTMLElement</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>document.body</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/routes/email.routes.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="emailController"></a>
+                    <span class="name">
+                        <span ><b>emailController</b></span>
+                        <a href="#emailController"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new EmailController()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleRequest"></a>
+                    <span class="name">
+                        <span ><b>handleRequest</b></span>
+                        <a href="#handleRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(fn: (req: Request, res: Response) &#x3D;&gt; Promise&lt;void&gt;) &#x3D;&gt; {
+  return async (req: Request, res: Response, next: NextFunction) &#x3D;&gt; {
+    try {
+      await fn(req, res);
+    } catch (error) {
+      next(error);
+    }
+  };
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Router()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/middleware/errorHandler.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorHandler"></a>
+                    <span class="name">
+                        <span ><b>errorHandler</b></span>
+                        <a href="#errorHandler"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(
+  err: ApiError,
+  req: Request,
+  res: Response,
+  next: NextFunction
+) &#x3D;&gt; {
+  const statusCode &#x3D; err.statusCode || 500;
+  
+  res.status(statusCode).json({
+    error: err.message || &#x27;Internal Server Error&#x27;,
+    status: &#x27;error&#x27;,
+    timestamp: new Date().toISOString()
+  });
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/utils/generateTestToken.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateAdminToken"></a>
+                    <span class="name">
+                        <span ><b>generateAdminToken</b></span>
+                        <a href="#generateAdminToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {
+  const adminUser &#x3D; {
+    id: &#x27;1&#x27;,
+    email: &#x27;admin@test.com&#x27;,
+    role: &#x27;admin&#x27;
+  };
+
+  const secret &#x3D; process.env.JWT_SECRET;
+  if (!secret) {
+    throw new Error(&#x27;JWT_SECRET is not defined in environment variables&#x27;);
+  }
+
+  return jwt.sign(adminUser, secret, { expiresIn: &#x27;1h&#x27; });
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/utils/errorHandler.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleError"></a>
+                    <span class="name">
+                        <span ><b>handleError</b></span>
+                        <a href="#handleError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(error: unknown, res: Response, defaultMessage: string): void &#x3D;&gt; {
+  if (error instanceof ApiError) {
+    res.status(error.statusCode).json({
+      success: false,
+      message: error.message
+    });
+  } else {
+    const status &#x3D; error instanceof Error ? 400 : 500;
+    res.status(status).json({
+      success: false,
+      message: error instanceof Error ? error.message : defaultMessage
+    });
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/routes/order.routes.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleRequest"></a>
+                    <span class="name">
+                        <span ><b>handleRequest</b></span>
+                        <a href="#handleRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(fn: (req: Request, res: Response, next: NextFunction) &#x3D;&gt; Promise&lt;void&gt;) &#x3D;&gt; {
+  return async (req: Request, res: Response, next: NextFunction) &#x3D;&gt; {
+    try {
+      await fn(req, res, next);
+    } catch (error) {
+      next(error);
+    }
+  };
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="orderController"></a>
+                    <span class="name">
+                        <span ><b>orderController</b></span>
+                        <a href="#orderController"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new OrderController()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>express.Router()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/routes/product.routes.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleRequest"></a>
+                    <span class="name">
+                        <span ><b>handleRequest</b></span>
+                        <a href="#handleRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(fn: (req: Request, res: Response, next: NextFunction) &#x3D;&gt; Promise&lt;void&gt;) &#x3D;&gt; {
+  return async (req: Request, res: Response, next: NextFunction) &#x3D;&gt; {
+    try {
+      await fn(req, res, next);
+    } catch (error) {
+      next(error);
+    }
+  };
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="productController"></a>
+                    <span class="name">
+                        <span ><b>productController</b></span>
+                        <a href="#productController"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new ProductController()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>express.Router()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/routes/user.routes.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleRequest"></a>
+                    <span class="name">
+                        <span ><b>handleRequest</b></span>
+                        <a href="#handleRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(fn: (req: Request, res: Response, next: NextFunction) &#x3D;&gt; Promise&lt;any&gt;) &#x3D;&gt; {
+  return async (req: Request, res: Response, next: NextFunction): Promise&lt;void&gt; &#x3D;&gt; {
+    try {
+      await fn(req, res, next);
+    } catch (error) {
+      next(error);
+    }
+  };
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Router()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userController"></a>
+                    <span class="name">
+                        <span ><b>userController</b></span>
+                        <a href="#userController"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new UserController()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/routes/invoice.routes.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="invoiceController"></a>
+                    <span class="name">
+                        <span ><b>invoiceController</b></span>
+                        <a href="#invoiceController"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InvoiceController()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Router()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/models/invoice.model.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="InvoiceModel"></a>
+                    <span class="name">
+                        <span ><b>InvoiceModel</b></span>
+                        <a href="#InvoiceModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>model(&#x27;Invoice&#x27;, invoiceSchema)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="invoiceSchema"></a>
+                    <span class="name">
+                        <span ><b>invoiceSchema</b></span>
+                        <a href="#invoiceSchema"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Schema({
+  id: { type: String, required: true, unique: true },
+  type: { type: String, required: true },
+  number: { type: Number, required: true, unique: true },
+  date: { type: Date, required: true },
+  customer: {
+    id: { type: String, required: true },
+    name: { type: String, required: true },
+    email: { type: String, required: true }
+  },
+  items: [{
+    description: String,
+    quantity: Number,
+    unitPrice: Number,
+    taxRate: Number,
+    subtotal: Number,
+    tax: Number,
+    total: Number
+  }],
+  subtotal: Number,
+  tax: Number,
+  total: Number,
+  status: {
+    type: String,
+    enum: [&#x27;pending&#x27;, &#x27;paid&#x27;, &#x27;cancelled&#x27;, &#x27;completed&#x27;],
+    default: &#x27;pending&#x27;
+  },
+  paymentDetails: {
+    method: {
+      type: String,
+      enum: [&#x27;cash&#x27;, &#x27;transfer&#x27;, &#x27;credit_card&#x27;, &#x27;debit_card&#x27;],
+      required: function(this: any): boolean {
+        return this.status &#x3D;&#x3D;&#x3D; &#x27;paid&#x27;;
+      }
+    },
+    paidAt: {
+      type: Date,
+      required: function(this: any): boolean {
+        return this.status &#x3D;&#x3D;&#x3D; &#x27;paid&#x27;;
+      }
+    },
+    transactionId: String,
+    notes: String,
+    partialPayments: [{
+      amount: { type: Number, required: true },
+      date: { type: Date, required: true },
+      method: { 
+        type: String, 
+        enum: [&#x27;cash&#x27;, &#x27;transfer&#x27;, &#x27;credit_card&#x27;, &#x27;debit_card&#x27;],
+        required: true 
+      },
+      notes: String
+    }]
+  },
+  dueDate: {
+    type: Date,
+    required: true,
+    validate: {
+      validator: function(this: any, value: Date): boolean {
+        return value &gt; this.date;
+      },
+      message: &#x27;Due date must be after invoice date&#x27;
+    }
+  },
+  remindersSent: [{
+    date: { type: Date, required: true },
+    type: { type: String, enum: [&#x27;email&#x27;, &#x27;sms&#x27;], required: true },
+    status: { type: String, enum: [&#x27;sent&#x27;, &#x27;failed&#x27;], required: true }
+  }],
+  pdfGenerated: {
+    lastGenerated: Date,
+    url: String,
+    version: { type: Number, default: 1 }
+  },
+  cancellationReason: {
+    type: String,
+    trim: true,
+    validate: {
+      validator: function(value: string) {
+        if (this.status !&#x3D;&#x3D; &#x27;cancelled&#x27;) return true;
+        if (!value) return false;
+        const trimmedLength &#x3D; value.trim().length;
+        return trimmedLength &gt;&#x3D; 10 &amp;&amp; trimmedLength &lt;&#x3D; 500;
+      },
+      message: function(props) {
+        if (!props.value) return &#x27;Cancellation reason is required when cancelling an invoice&#x27;;
+        if (props.value.trim().length &lt; 10) return &#x27;Cancellation reason must be at least 10 characters long&#x27;;
+        if (props.value.trim().length &gt; 500) return &#x27;Cancellation reason cannot exceed 500 characters&#x27;;
+        return &#x27;Invalid cancellation reason&#x27;;
+      }
+    }
+  },
+  cancelledAt: {
+    type: Date,
+    default: null,
+    validate: {
+      validator: function(this: any, value: Date | null): boolean {
+        if (this.status &#x3D;&#x3D;&#x3D; &#x27;cancelled&#x27;) {
+          return value instanceof Date;
+        }
+        return value &#x3D;&#x3D;&#x3D; null;
+      },
+      message: function(this: any): string {
+        return this.status &#x3D;&#x3D;&#x3D; &#x27;cancelled&#x27; 
+          ? &#x27;Cancellation date is required when invoice is cancelled&#x27; 
+          : &#x27;Cancellation date must be null when invoice is not cancelled&#x27;;
+      }
+    }
+  }
+}, {
+    
+  timestamps: true
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/models/invoice.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="InvoiceModel"></a>
+                    <span class="name">
+                        <span ><b>InvoiceModel</b></span>
+                        <a href="#InvoiceModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>mongoose.model&lt;InvoiceDocument&gt;(&#x27;Invoice&#x27;, InvoiceSchema)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="InvoiceSchema"></a>
+                    <span class="name">
+                        <span ><b>InvoiceSchema</b></span>
+                        <a href="#InvoiceSchema"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Schema({
+  id: { type: String, required: true },
+  type: { type: String, enum: [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;E&#x27;], required: true },
+  number: { type: Number, required: true },
+  date: { type: Date, required: true },
+  customer: {
+    name: { type: String, required: true },
+    documentType: { type: String, required: true },
+    documentNumber: { type: String, required: true },
+    address: { type: String, required: true },
+    email: { type: String }
+  },
+  items: [{
+    description: { type: String, required: true },
+    quantity: { type: Number, required: true },
+    unitPrice: { type: Number, required: true },
+    taxRate: { type: Number, required: true },
+    subtotal: { type: Number, required: true },
+    tax: { type: Number, required: true },
+    total: { type: Number, required: true }
+  }],
+  subtotal: { type: Number, required: true },
+  tax: { type: Number, required: true },
+  total: { type: Number, required: true },
+  status: { 
+    type: String, 
+    enum: [&#x27;draft&#x27;, &#x27;pending&#x27;, &#x27;approved&#x27;, &#x27;rejected&#x27;],
+    required: true,
+    default: &#x27;draft&#x27;
+  }
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/middleware/isAdmin.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isAdmin"></a>
+                    <span class="name">
+                        <span ><b>isAdmin</b></span>
+                        <a href="#isAdmin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(req: UserRequest, res: Response, next: NextFunction): void &#x3D;&gt; {
+  try {
+    if (!req.user) {
+      res.status(401).json({ error: &#x27;Authentication required&#x27; });
+      return;
+    }
+    
+    if (req.user.role !&#x3D;&#x3D; &#x27;admin&#x27;) {
+      console.warn(&#x60;Unauthorized admin access attempt by user: ${req.user.email}&#x60;);
+      res.status(403).json({ error: &#x27;Access denied. Admin privileges required.&#x27; });
+      return;
+    }
+    
+    next();
+  } catch (error) {
+    console.error(&#x27;Admin middleware error:&#x27;, error);
+    res.status(500).json({ error: &#x27;Error checking admin privileges&#x27; });
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/routes/auth.routes.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="login"></a>
+                    <span class="name">
+                        <span ><b>login</b></span>
+                        <a href="#login"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>RequestHandler</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async (req: Request, res: Response): Promise&lt;void&gt; &#x3D;&gt; {
+  try {
+    const { email, password } &#x3D; req.body;
+    console.log(&#x27;Login attempt for email:&#x27;, email);
+
+    const user &#x3D; await prisma.user.findUnique({ where: { email } });
+    if (!user) {
+      console.log(&#x27;User not found:&#x27;, email);
+      res.status(401).json({ error: &#x27;Invalid credentials&#x27; });
+      return;
+    }
+
+    const isValidPassword &#x3D; await bcrypt.compare(password, user.password);
+    if (!isValidPassword) {
+      console.log(&#x27;Invalid password for user:&#x27;, email);
+      res.status(401).json({ error: &#x27;Invalid credentials&#x27; });
+      return;
+    }
+
+    const token &#x3D; jwt.sign(
+      { userId: user.id, email: user.email },
+      process.env.JWT_SECRET || &#x27;your-secret-key&#x27;,
+      { expiresIn: &#x27;24h&#x27; }
+    );
+
+    console.log(&#x27;Login successful for user:&#x27;, email);
+    res.json({
+      token,
+      user: {
+        id: user.id,
+        email: user.email,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        role: user.role,
+        createdAt: user.createdAt,
+        updatedAt: user.updatedAt
+      }
+    });
+  } catch (error: any) {
+    console.error(&#x27;Login error details:&#x27;, {
+      message: error.message,
+      stack: error.stack
+    });
+    res.status(500).json({ error: &#x60;Login failed: ${error.message}&#x60; });
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="register"></a>
+                    <span class="name">
+                        <span ><b>register</b></span>
+                        <a href="#register"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async (req: Request, res: Response): Promise&lt;void&gt; &#x3D;&gt; {
+  try {
+    console.log(&#x27;Raw request body:&#x27;, req.body);
+    
+    // Add body parsing check
+    if (!req.body || typeof req.body !&#x3D;&#x3D; &#x27;object&#x27;) {
+      console.error(&#x27;Invalid request body format:&#x27;, req.body);
+      res.status(400).json({ error: &#x27;Invalid request format&#x27; });
+      return;
+    }
+
+    const { email, password, firstName, lastName } &#x3D; req.body;
+    
+    // Validate request body format
+    if (typeof email !&#x3D;&#x3D; &#x27;string&#x27; || typeof password !&#x3D;&#x3D; &#x27;string&#x27; || 
+        typeof firstName !&#x3D;&#x3D; &#x27;string&#x27; || typeof lastName !&#x3D;&#x3D; &#x27;string&#x27;) {
+      console.error(&#x27;Invalid data types in request&#x27;);
+      res.status(400).json({ error: &#x27;Invalid data format&#x27; });
+      return;
+    }
+
+    // Check database connection
+    try {
+      await prisma.$connect();
+      console.log(&#x27;Database connected successfully&#x27;);
+      
+      // Check if user exists
+      const existingUser &#x3D; await prisma.user.findUnique({ 
+        where: { email },
+        select: { email: true }
+      });
+      
+      if (existingUser) {
+        console.log(&#x27;Email already exists:&#x27;, email);
+        res.status(400).json({ error: &#x27;Email already exists&#x27; });
+        return;
+      }
+
+      const hashedPassword &#x3D; await bcrypt.hash(password, 10);
+      const user &#x3D; await prisma.user.create({
+        data: {
+          email,
+          password: hashedPassword,
+          firstName,
+          lastName,
+          role: &#x27;USER&#x27;  // Fixed: Changed &#x27;user&#x27; to &#x27;USER&#x27; to match Prisma enum
+        }
+      });
+
+      console.log(&#x27;User created successfully:&#x27;, { id: user.id, email: user.email });
+      res.status(201).json({ message: &#x27;User created successfully&#x27;, userId: user.id });
+    } catch (dbError: any) {
+      console.error(&#x27;Database error:&#x27;, {
+        message: dbError.message,
+        code: dbError.code,
+        meta: dbError.meta
+      });
+      throw dbError; // Propagate to outer catch
+    }
+  } catch (error: any) {
+    console.error(&#x27;Registration failed:&#x27;, {
+      name: error.name,
+      message: error.message,
+      code: error.code,
+      stack: error.stack
+    });
+    res.status(500).json({ error: &#x60;Registration failed: ${error.message}&#x60; });
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>express.Router()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>frontend/src/pages/Login.tsx</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Login"></a>
+                    <span class="name">
+                        <span ><b>Login</b></span>
+                        <a href="#Login"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>React.FC</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {
+  const navigate &#x3D; useNavigate();
+  const [email, setEmail] &#x3D; useState(&#x27;&#x27;);
+  const [password, setPassword] &#x3D; useState(&#x27;&#x27;);
+  const [error, setError] &#x3D; useState(&#x27;&#x27;);
+
+  const handleLogin &#x3D; async (e: React.FormEvent) &#x3D;&gt; {
+    e.preventDefault();
+    try {
+      await authService.login({ email, password });
+      navigate(&#x27;/&#x27;);
+    } catch (err) {
+      setError(&#x27;Invalid credentials&#x27;);
+    }
+  };
+
+  return (
+    &lt;Box sx&#x3D;{{ 
+      height: &#x27;100vh&#x27;, 
+      display: &#x27;flex&#x27;, 
+      alignItems: &#x27;center&#x27;, 
+      justifyContent: &#x27;center&#x27;,
+      bgcolor: &#x27;background.default&#x27; 
+    }}&gt;
+      &lt;Card sx&#x3D;{{ maxWidth: 400, width: &#x27;100%&#x27;, mx: 2 }}&gt;
+        &lt;CardContent&gt;
+          &lt;Typography variant&#x3D;&quot;h5&quot; gutterBottom align&#x3D;&quot;center&quot;&gt;
+            CRM Sports Login
+          &lt;/Typography&gt;
+          {error &amp;&amp; &lt;Alert severity&#x3D;&quot;error&quot; sx&#x3D;{{ mb: 2 }}&gt;{error}&lt;/Alert&gt;}
+          &lt;form onSubmit&#x3D;{handleLogin}&gt;
+            &lt;TextField
+              fullWidth
+              label&#x3D;&quot;Email&quot;
+              type&#x3D;&quot;email&quot;
+              value&#x3D;{email}
+              onChange&#x3D;{(e) &#x3D;&gt; setEmail(e.target.value)}
+              margin&#x3D;&quot;normal&quot;
+              required
+            /&gt;
+            &lt;TextField
+              fullWidth
+              label&#x3D;&quot;Password&quot;
+              type&#x3D;&quot;password&quot;
+              value&#x3D;{password}
+              onChange&#x3D;{(e) &#x3D;&gt; setPassword(e.target.value)}
+              margin&#x3D;&quot;normal&quot;
+              required
+            /&gt;
+            &lt;Button
+              fullWidth
+              type&#x3D;&quot;submit&quot;
+              variant&#x3D;&quot;contained&quot;
+              sx&#x3D;{{ mt: 3 }}
+            &gt;
+              Login
+            &lt;/Button&gt;
+          &lt;/form&gt;
+        &lt;/CardContent&gt;
+      &lt;/Card&gt;
+    &lt;/Box&gt;
+  );
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/db/migrate.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="migrate"></a>
+                    <span class="name">
+                        <span ><b>migrate</b></span>
+                        <a href="#migrate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async () &#x3D;&gt; {
+  try {
+    await createInitialSchema();
+    console.log(&#x27;All migrations completed successfully&#x27;);
+    process.exit(0);
+  } catch (error) {
+    console.error(&#x27;Migration failed:&#x27;, error);
+    process.exit(1);
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pool"></a>
+                    <span class="name">
+                        <span ><b>pool</b></span>
+                        <a href="#pool"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Pool({
+  user: process.env.POSTGRES_USER,
+  host: process.env.POSTGRES_HOST,
+  database: process.env.POSTGRES_DB,
+  password: process.env.POSTGRES_PASSWORD,
+  port: parseInt(process.env.POSTGRES_PORT || &#x27;5432&#x27;),
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/config/swagger.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="options"></a>
+                    <span class="name">
+                        <span ><b>options</b></span>
+                        <a href="#options"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  definition: {
+    openapi: &#x27;3.0.0&#x27;,
+    info: {
+      title: &#x27;CRM Sports API Documentation&#x27;,
+      version: &#x27;1.0.0&#x27;,
+      description: &#x27;API documentation for CRM Sports system&#x27;
+    },
+    servers: [
+      {
+        url: &#x27;http://localhost:3000/api&#x27;,
+        description: &#x27;Development server&#x27;
+      }
+    ]
+  },
+  apis: [&#x27;./src/routes/*.ts&#x27;]
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="specs"></a>
+                    <span class="name">
+                        <span ><b>specs</b></span>
+                        <a href="#specs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>swaggerJsdoc(options)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/models/Order.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Order"></a>
+                    <span class="name">
+                        <span ><b>Order</b></span>
+                        <a href="#Order"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>mongoose.model&lt;IOrder&gt;(&#x27;Order&#x27;, OrderSchema)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OrderSchema"></a>
+                    <span class="name">
+                        <span ><b>OrderSchema</b></span>
+                        <a href="#OrderSchema"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Schema({
+  customer: { 
+    type: Schema.Types.ObjectId, 
+    ref: &#x27;Customer&#x27;, 
+    required: true 
+  },
+  items: [{
+    product: { 
+      type: Schema.Types.ObjectId, 
+      ref: &#x27;Product&#x27;, 
+      required: true 
+    },
+    quantity: { 
+      type: Number, 
+      required: true, 
+      min: 1 
+    },
+    price: { 
+      type: Number, 
+      required: true, 
+      min: 0 
+    }
+  }],
+  total: { 
+    type: Number, 
+    required: true, 
+    min: 0 
+  },
+  status: { 
+    type: String, 
+    enum: [&#x27;pending&#x27;, &#x27;completed&#x27;, &#x27;cancelled&#x27;], 
+    default: &#x27;pending&#x27; 
+  }
+}, {
+  timestamps: true,
+  toJSON: { virtuals: true },
+  toObject: { virtuals: true }
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/models/payment.model.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Payment"></a>
+                    <span class="name">
+                        <span ><b>Payment</b></span>
+                        <a href="#Payment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>mongoose.model&lt;IPayment&gt;(&#x27;Payment&#x27;, PaymentSchema)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PaymentSchema"></a>
+                    <span class="name">
+                        <span ><b>PaymentSchema</b></span>
+                        <a href="#PaymentSchema"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Schema({
+  invoiceId: {
+    type: String,
+    required: true,
+    ref: &#x27;Invoice&#x27;
+  },
+  amount: {
+    type: Number,
+    required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  },
+  method: {
+    type: String,
+    enum: [&#x27;cash&#x27;, &#x27;transfer&#x27;, &#x27;credit_card&#x27;, &#x27;debit_card&#x27;],
+    required: true
+  },
+  notes: {
+    type: String
+  },
+  status: {
+    type: String,
+    enum: [&#x27;pending&#x27;, &#x27;completed&#x27;, &#x27;failed&#x27;],
+    default: &#x27;completed&#x27;
+  },
+  transactionId: {
+    type: String
+  }
+}, {
+  timestamps: true
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/routes/pdf.routes.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pdfController"></a>
+                    <span class="name">
+                        <span ><b>pdfController</b></span>
+                        <a href="#pdfController"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new PDFController()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Router()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/prisma/seed.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prisma"></a>
+                    <span class="name">
+                        <span ><b>prisma</b></span>
+                        <a href="#prisma"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new PrismaClient()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/lib/prisma.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prisma"></a>
+                    <span class="name">
+                        <span ><b>prisma</b></span>
+                        <a href="#prisma"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new PrismaClient()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/routes/auth.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prisma"></a>
+                    <span class="name">
+                        <span ><b>prisma</b></span>
+                        <a href="#prisma"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new PrismaClient()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>express.Router()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/scripts/seedDemo.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prisma"></a>
+                    <span class="name">
+                        <span ><b>prisma</b></span>
+                        <a href="#prisma"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new PrismaClient()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/models/Product.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Product"></a>
+                    <span class="name">
+                        <span ><b>Product</b></span>
+                        <a href="#Product"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>mongoose.model&lt;IProduct&gt;(&#x27;Product&#x27;, ProductSchema)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ProductSchema"></a>
+                    <span class="name">
+                        <span ><b>ProductSchema</b></span>
+                        <a href="#ProductSchema"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Schema({
+  name: { 
+    type: String, 
+    required: true,
+    trim: true
+  },
+  sku: { 
+    type: String, 
+    required: true, 
+    unique: true,
+    trim: true
+  },
+  description: { 
+    type: String,
+    trim: true
+  },
+  price: { 
+    type: Number, 
+    required: true,
+    min: 0
+  },
+  stock: { 
+    type: Number, 
+    default: 0,
+    min: 0
+  },
+  minStock: { 
+    type: Number, 
+    default: 5,
+    min: 0
+  },
+  category: {
+    id: String,
+    name: String,
+    description: String
+  },
+  images: [String],
+  status: { 
+    type: String, 
+    enum: [&#x27;active&#x27;, &#x27;inactive&#x27;], 
+    default: &#x27;active&#x27; 
+  }
+}, {
+  timestamps: true,
+  toJSON: { virtuals: true },
+  toObject: { virtuals: true }
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>frontend/src/pages/Products.tsx</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Products"></a>
+                    <span class="name">
+                        <span ><b>Products</b></span>
+                        <a href="#Products"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>React.FC</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {
+  const products &#x3D; [
+    {
+      id: 1,
+      name: &#x27;Running Shoes&#x27;,
+      price: 99.99,
+      stock: 45,
+      category: &#x27;Footwear&#x27;,
+      image: &#x27;https://via.placeholder.com/150&#x27;,
+    },
+    {
+      id: 2,
+      name: &#x27;Training Mat&#x27;,
+      price: 29.99,
+      stock: 30,
+      category: &#x27;Equipment&#x27;,
+      image: &#x27;https://via.placeholder.com/150&#x27;,
+    },
+    {
+      id: 3,
+      name: &#x27;Sports Watch&#x27;,
+      price: 199.99,
+      stock: 15,
+      category: &#x27;Accessories&#x27;,
+      image: &#x27;https://via.placeholder.com/150&#x27;,
+    },
+  ];
+
+  return (
+    &lt;Box p&#x3D;{3}&gt;
+      &lt;Box display&#x3D;&quot;flex&quot; justifyContent&#x3D;&quot;space-between&quot; alignItems&#x3D;&quot;center&quot; mb&#x3D;{3}&gt;
+        &lt;Typography variant&#x3D;&quot;h4&quot;&gt;Products&lt;/Typography&gt;
+        &lt;Button variant&#x3D;&quot;contained&quot; startIcon&#x3D;{&lt;AddIcon /&gt;}&gt;
+          Add Product
+        &lt;/Button&gt;
+      &lt;/Box&gt;
+
+      &lt;Grid container spacing&#x3D;{3}&gt;
+        {products.map((product) &#x3D;&gt; (
+          &lt;Grid item xs&#x3D;{12} sm&#x3D;{6} md&#x3D;{4} key&#x3D;{product.id}&gt;
+            &lt;Card&gt;
+              &lt;CardMedia
+                component&#x3D;&quot;img&quot;
+                height&#x3D;&quot;140&quot;
+                image&#x3D;{product.image}
+                alt&#x3D;{product.name}
+              /&gt;
+              &lt;CardContent&gt;
+                &lt;Typography gutterBottom variant&#x3D;&quot;h6&quot;&gt;
+                  {product.name}
+                &lt;/Typography&gt;
+                &lt;Typography variant&#x3D;&quot;body2&quot; color&#x3D;&quot;text.secondary&quot;&gt;
+                  ${product.price}
+                &lt;/Typography&gt;
+                &lt;Box mt&#x3D;{1} display&#x3D;&quot;flex&quot; alignItems&#x3D;&quot;center&quot; gap&#x3D;{1}&gt;
+                  &lt;Chip label&#x3D;{product.category} size&#x3D;&quot;small&quot; /&gt;
+                  &lt;Chip label&#x3D;{&#x60;Stock: ${product.stock}&#x60;} size&#x3D;&quot;small&quot; color&#x3D;{product.stock &lt; 20 ? &quot;warning&quot; : &quot;default&quot;} /&gt;
+                &lt;/Box&gt;
+                &lt;Box mt&#x3D;{2} display&#x3D;&quot;flex&quot; justifyContent&#x3D;&quot;flex-end&quot; gap&#x3D;{1}&gt;
+                  &lt;IconButton size&#x3D;&quot;small&quot; color&#x3D;&quot;primary&quot;&gt;
+                    &lt;EditIcon /&gt;
+                  &lt;/IconButton&gt;
+                  &lt;IconButton size&#x3D;&quot;small&quot; color&#x3D;&quot;error&quot;&gt;
+                    &lt;DeleteIcon /&gt;
+                  &lt;/IconButton&gt;
+                &lt;/Box&gt;
+              &lt;/CardContent&gt;
+            &lt;/Card&gt;
+          &lt;/Grid&gt;
+        ))}
+      &lt;/Grid&gt;
+    &lt;/Box&gt;
+  );
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>frontend/src/services/productService.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="productService"></a>
+                    <span class="name">
+                        <span ><b>productService</b></span>
+                        <a href="#productService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  async getAll(): Promise&lt;Product[]&gt; {
+    const { data } &#x3D; await api.get(&#x27;/products&#x27;);
+    return data;
+  },
+
+  async getById(id: string): Promise&lt;Product&gt; {
+    const { data } &#x3D; await api.get(&#x60;/products/${id}&#x60;);
+    return data;
+  },
+
+  async create(product: ProductCreate): Promise&lt;Product&gt; {
+    const { data } &#x3D; await api.post(&#x27;/products&#x27;, product);
+    return data;
+  },
+
+  async update(id: string, product: Partial&lt;ProductCreate&gt;): Promise&lt;Product&gt; {
+    const { data } &#x3D; await api.put(&#x60;/products/${id}&#x60;, product);
+    return data;
+  },
+
+  async delete(id: string): Promise&lt;void&gt; {
+    await api.delete(&#x60;/products/${id}&#x60;);
+  },
+
+  async syncWithMeli(id: string): Promise&lt;Product&gt; {
+    const { data } &#x3D; await api.post(&#x60;/products/${id}/sync-meli&#x60;);
+    return data;
+  },
+
+  async updateStock(id: string, quantity: number): Promise&lt;Product&gt; {
+    const { data } &#x3D; await api.patch(&#x60;/products/${id}/stock&#x60;, { quantity });
+    return data;
+  },
+
+  async updatePrice(id: string, price: number): Promise&lt;Product&gt; {
+    const { data } &#x3D; await api.patch(&#x60;/products/${id}/price&#x60;, { price });
+    return data;
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>frontend/src/components/ProtectedRoute.tsx</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ProtectedRoute"></a>
+                    <span class="name">
+                        <span ><b>ProtectedRoute</b></span>
+                        <a href="#ProtectedRoute"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>({ children }: { children: ReactElement }) &#x3D;&gt; {
+  const isAuthenticated &#x3D; authService.isAuthenticated();
+  return isAuthenticated ? children : &lt;Navigate to&#x3D;&quot;/login&quot; /&gt;;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/controllers/reportController.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reportController"></a>
+                    <span class="name">
+                        <span ><b>reportController</b></span>
+                        <a href="#reportController"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  async getReportData(req: Request, res: Response) {
+    try {
+      const { timeFrame } &#x3D; req.query;
+      const startDate &#x3D; getStartDate(timeFrame as string);
+      
+      const [salesData, customerStats, productStats] &#x3D; await Promise.all([
+        getSalesData(startDate),
+        getCustomerStats(),
+        getProductStats()
+      ]);
+
+      res.json({
+        salesData,
+        customerStats,
+        productStats
+      });
+    } catch (error) {
+      res.status(500).json({ error: &#x27;Failed to fetch report data&#x27; });
+    }
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/routes/reportRoutes.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reportController"></a>
+                    <span class="name">
+                        <span ><b>reportController</b></span>
+                        <a href="#reportController"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new ReportController()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>express.Router()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>frontend/src/reportWebVitals.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reportWebVitals"></a>
+                    <span class="name">
+                        <span ><b>reportWebVitals</b></span>
+                        <a href="#reportWebVitals"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(onPerfEntry?: ReportHandler) &#x3D;&gt; {
+  if (onPerfEntry &amp;&amp; onPerfEntry instanceof Function) {
+    import(&#x27;web-vitals&#x27;).then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) &#x3D;&gt; {
+      getCLS(onPerfEntry);
+      getFID(onPerfEntry);
+      getFCP(onPerfEntry);
+      getLCP(onPerfEntry);
+      getTTFB(onPerfEntry);
+    });
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>frontend/src/index.tsx</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="root"></a>
+                    <span class="name">
+                        <span ><b>root</b></span>
+                        <a href="#root"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>ReactDOM.createRoot(
+  document.getElementById(&#x27;root&#x27;) as HTMLElement
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/routes/appointments.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>express.Router()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/routes/clients.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>express.Router()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/routes/dashboard.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>express.Router()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/routes/index.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Router()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/routes/notifications.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>express.Router()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/routes/stock.routes.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Router()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stockController"></a>
+                    <span class="name">
+                        <span ><b>stockController</b></span>
+                        <a href="#stockController"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new StockController()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/routes/tasks.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>express.Router()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/models/stock.model.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Stock"></a>
+                    <span class="name">
+                        <span ><b>Stock</b></span>
+                        <a href="#Stock"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>mongoose.model&lt;IStock&gt;(&#x27;Stock&#x27;, StockSchema)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="StockSchema"></a>
+                    <span class="name">
+                        <span ><b>StockSchema</b></span>
+                        <a href="#StockSchema"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Schema({
+  productId: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  meliId: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  quantity: {
+    type: Number,
+    required: true,
+    min: 0
+  },
+  minThreshold: {
+    type: Number,
+    required: true,
+    default: 5
+  },
+  lastSync: {
+    type: Date,
+    default: Date.now
+  },
+  lastAlert: {
+    type: Date,
+    default: null
+  },
+  price: {
+    type: Number,
+    required: true
+  },
+  status: {
+    type: String,
+    enum: [&#x27;active&#x27;, &#x27;inactive&#x27;],
+    default: &#x27;active&#x27;
+  }
+}, {
+  timestamps: true
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/models/stockMetrics.model.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="StockMetrics"></a>
+                    <span class="name">
+                        <span ><b>StockMetrics</b></span>
+                        <a href="#StockMetrics"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>mongoose.model&lt;IStockMetrics&gt;(&#x27;StockMetrics&#x27;, StockMetricsSchema)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="StockMetricsSchema"></a>
+                    <span class="name">
+                        <span ><b>StockMetricsSchema</b></span>
+                        <a href="#StockMetricsSchema"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Schema({
+  productId: {
+    type: String,
+    required: true,
+    index: true
+  },
+  meliId: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  },
+  quantity: {
+    type: Number,
+    required: true
+  },
+  price: {
+    type: Number,
+    required: true
+  },
+  stockDelta: {
+    type: Number,
+    required: true
+  },
+  priceDelta: {
+    type: Number,
+    required: true
+  }
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>frontend/src/utils/testServices.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="testConnections"></a>
+                    <span class="name">
+                        <span ><b>testConnections</b></span>
+                        <a href="#testConnections"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async () &#x3D;&gt; {
+  try {
+    // Test Auth
+    const isAuth &#x3D; authService.isAuthenticated();
+    console.log(&#x27;Auth Status:&#x27;, isAuth);
+
+    // Test Clients
+    const clients &#x3D; await clientService.getAll();
+    console.log(&#x27;Clients loaded:&#x27;, clients.length);
+
+    // Test Products
+    const products &#x3D; await productService.getAll();
+    console.log(&#x27;Products loaded:&#x27;, products.length);
+
+    // Test AFIP Connection
+    const testCuit &#x3D; &#x27;20123456780&#x27;;
+    const isValidCuit &#x3D; await afipService.validateCuit(testCuit);
+    console.log(&#x27;AFIP Connection:&#x27;, isValidCuit ? &#x27;OK&#x27; : &#x27;Failed&#x27;);
+
+    return true;
+  } catch (error) {
+    console.error(&#x27;Service Test Failed:&#x27;, error);
+    return false;
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>frontend/src/theme.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="theme"></a>
+                    <span class="name">
+                        <span ><b>theme</b></span>
+                        <a href="#theme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createTheme({
+  palette: {
+    primary: {
+      main: &#x27;#1976d2&#x27;,
+    },
+    secondary: {
+      main: &#x27;#dc004e&#x27;,
+    },
+  },
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/middleware/validate.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name=""></a>
+                    <span class="name">
+                        <span ><b></b></span>
+                        <a href="#"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>require(&#x27;express-validator&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validate"></a>
+                    <span class="name">
+                        <span ><b>validate</b></span>
+                        <a href="#validate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(validations: any[]) &#x3D;&gt; {
+  return async (req: Request, res: Response, next: NextFunction): Promise&lt;void&gt; &#x3D;&gt; {
+    try {
+      await Promise.all(validations.map(validation &#x3D;&gt; validation.run(req)));
+      const errors &#x3D; validationResult(req);
+      if (errors.isEmpty()) {
+        return next();
+      }
+      res.status(400).json({
+        status: &#x27;error&#x27;,
+        errors: errors.array()
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/middleware/validation.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateOrderId"></a>
+                    <span class="name">
+                        <span ><b>validateOrderId</b></span>
+                        <a href="#validateOrderId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(req: Request, res: Response, next: NextFunction) &#x3D;&gt; {
+  const { orderId } &#x3D; req.body;
+  
+  if (!orderId || typeof orderId !&#x3D;&#x3D; &#x27;string&#x27;) {
+    return res.status(400).json({ error: &#x27;Valid order ID is required&#x27; });
+  }
+
+  next();
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>backend/src/routes/billing.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateOrderId"></a>
+                    <span class="name">
+                        <span ><b>validateOrderId</b></span>
+                        <a href="#validateOrderId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(req: Request, res: Response, next: NextFunction): void &#x3D;&gt; {
+  const { orderId } &#x3D; req.body;
+
+  if (!orderId || typeof orderId !&#x3D;&#x3D; &#x27;string&#x27;) {
+    res.status(400).json({ error: &#x27;Invalid or missing orderId&#x27; });
+    return; // Stop further execution
+  }
+
+  next(); // Proceed if validation passes
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
